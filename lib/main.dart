@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'Home2.dart';
-
+import 'Quiz.dart';
 void main() {
   runApp(MyApp());
 }
@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Home2(),
       // home:HomePage() ,
+      
     );
   }
 }
