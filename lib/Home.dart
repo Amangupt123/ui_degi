@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -254,6 +255,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      
     );
   }
 }
