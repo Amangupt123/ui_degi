@@ -22,7 +22,6 @@ class _QuizState extends State<Quiz> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 100,
-
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/image/top_header@3x.png"),
@@ -30,29 +29,68 @@ class _QuizState extends State<Quiz> {
                 ),
               ),
             ),
-              const SizedBox(height: 20),
-             Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:  [ Image.asset("assets/image/Vector@2x.png",scale: 2,),
-                      Padding(padding: EdgeInsets.only(left: 5)
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/image/Vector@2x.png",
+                  scale: 2,
+                ),
+                Padding(padding: EdgeInsets.only(left: 5)),
+                Text(
+                  "How to ",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Quiz()));
+                  },
+                  child: Text(
+                    "Play a Quiz",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Flexible(
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const ExpansionTile(
+                      title: Text(
+                        ' items.playerName',
+                        style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
                       ),
-                        Text(
-                          "How to ",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                        ),
-                      InkWell(onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Quiz()));
-                      },
-                          child: Text(
-                            "Play a Quiz",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900,decoration: TextDecoration.underline,),
+                      children: <Widget>[
+                        ListTile(
+                          title: Text(
+                            ' items.description',
+                            style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                         )
                       ],
-                    ),
+                    );
+                  }),
+            ),
+            // ExpansionTile(
+            //   title: Text(
+            //     ' items.playerName',
+            //     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+            //   ),
+            //   children: <Widget>[
+            //     ListTile(
+            //       title: Text(
+            //         ' items.description',
+            //         style: TextStyle(fontWeight: FontWeight.w700),
+            //       ),
+            //     )
+            //   ],
+            // ),
           ],
         ),
       ),
