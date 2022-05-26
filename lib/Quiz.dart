@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_degi/quizresult.dart';
 
-import 'Videoadd.dart';
 
 class Quiz extends StatefulWidget {
   Quiz({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _QuizState extends State<Quiz> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+          SizedBox(height: 40,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,7 +49,7 @@ class _QuizState extends State<Quiz> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Video()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Result()));
                   },
                   child: Text(
                     "Play a Quiz",
@@ -62,6 +62,7 @@ class _QuizState extends State<Quiz> {
                 )
               ],
             ),
+            SizedBox(height: 0.01,),
             Flexible(
               child: ListView.builder(
                   itemCount: 2,

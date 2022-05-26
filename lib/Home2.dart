@@ -64,22 +64,6 @@ class _Home2State extends State<Home2> {
         }
       }
     }
-    void initState() {
-      _controller = VideoPlayerController.network('https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-        ..initialize().then((_) {
-          // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-          setState(() {
-            _controller!.play();
-          });
-        });
-      super.initState();
-    }
-
-    @override
-    void dispose() {
-      super.dispose();
-      _controller!.dispose();
-    }
   }
 
   Widget build(BuildContext context) {
@@ -161,8 +145,7 @@ class _Home2State extends State<Home2> {
                       onTap: (() {
                         showGeneralDialog(
                           context: context,
-                          pageBuilder: (BuildContext buildContext, Animation<double> animation,
-                              Animation<double> secondaryAnimation) {
+                          pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
                             return BackdropFilter(
                               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                               child: NewWidget(),
@@ -240,12 +223,10 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "    Your subscription will be Ended",
-                              style:
-                                  TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
                             ),
                             Text("04 May 2022",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
                           ],
                         ),
                         ElevatedButton(
@@ -272,7 +253,7 @@ class _Home2State extends State<Home2> {
               ),
 
               Container(
-                margin: EdgeInsets.only(top: 130),
+                margin: EdgeInsets.only(top: 82),
                 decoration: BoxDecoration(
                   color: Color(0xff28527B),
                   border: Border.all(width: 1, color: const Color(0xff28527B)),
@@ -280,12 +261,12 @@ class _Home2State extends State<Home2> {
                 ),
                 // width: 296,
                 // height: 101,
-                width: MediaQuery.of(context).size.width * 0.92,
-                height: MediaQuery.of(context).size.height * 0.16,
+                width: MediaQuery.of(context).size.width * 0.93,
+                height: MediaQuery.of(context).size.height * 0.21,
                 //color: Colors.white,
                 child: Column(
                   children: [
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -303,7 +284,7 @@ class _Home2State extends State<Home2> {
                       ],
                     ),
                     const SizedBox(
-                      height: 34,
+                      height: 45,
                     ),
                     Row(
                       //crossAxisAlignment: CrossAxisAlignment.start,
@@ -318,8 +299,7 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Days",
-                              style:
-                                  TextStyle(fontSize: 24, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF)),
+                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
@@ -337,8 +317,7 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Hours",
-                              style:
-                                  TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: const Color(0xffFFFFFF)),
+                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
@@ -357,17 +336,17 @@ class _Home2State extends State<Home2> {
                             Text(
                               "Mins",
                               style: TextStyle(
-                                fontSize: 24,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w500,
-                                color: const Color(0xffFFFFF).withOpacity(0.6),
+                                color: const Color(0xffFFFFFF).withOpacity(0.6),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.06),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 20, color: const Color(0xffD8D8D8)),
+                          style: TextStyle(fontSize: 35, color: const Color(0xffD8D8D8)),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
@@ -381,15 +360,15 @@ class _Home2State extends State<Home2> {
                             Text(
                               "Sec",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w500,
-                                color: const Color(0xffFFFFF).withOpacity(0.7),
+                                color: const Color(0xffFFFFFF).withOpacity(0.6),
                               ),
                             ),
                           ],
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.09,
+                          width: MediaQuery.of(context).size.width * 0.08,
                         ),
                       ],
                     )
@@ -401,8 +380,8 @@ class _Home2State extends State<Home2> {
             ]),
             SizedBox(height: 50),
             Positioned(
-              left: 5,
-              top: 132,
+              left: 2,
+              top: 84,
               child: SizedBox(
                 height: 30,
                 child: Image.asset("assets/image/crown.png"),
@@ -442,17 +421,21 @@ class _NewWidgetState extends State<NewWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: 410,
-            height: 80,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/image/crown.png'),
-                fit: BoxFit.fill,
+          Row(
+            children: [
+              Container(
+               // width: 3,
+                height: 90,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Color(0xffFFFFFF)),
+                padding: EdgeInsets.only(right: 293),
+                child: Image.asset(
+                  'assets/image/Ellipse 14@3x.png',
+                  scale: 2.5
+                ),
+              
               ),
-              shape: BoxShape.circle,
-            ),
-            // color: Colors.red,
+            
+            ],
           ),
           Container(
               child: _controller != null
