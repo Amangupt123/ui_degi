@@ -145,7 +145,8 @@ class _Home2State extends State<Home2> {
                       onTap: (() {
                         showGeneralDialog(
                           context: context,
-                          pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
+                          pageBuilder: (BuildContext buildContext, Animation<double> animation,
+                              Animation<double> secondaryAnimation) {
                             return BackdropFilter(
                               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                               child: NewWidget(),
@@ -223,10 +224,12 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "    Your subscription will be Ended",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
+                              style:
+                                  TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
                             ),
                             Text("04 May 2022",
-                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
                           ],
                         ),
                         ElevatedButton(
@@ -255,9 +258,13 @@ class _Home2State extends State<Home2> {
               Container(
                 margin: EdgeInsets.only(top: 82),
                 decoration: BoxDecoration(
-                  color: Color(0xff28527B),
+                  // color: Color(0xff28527B),
                   border: Border.all(width: 1, color: const Color(0xff28527B)),
                   borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: AssetImage('assets/image/Group 74454.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 // width: 296,
                 // height: 101,
@@ -288,7 +295,8 @@ class _Home2State extends State<Home2> {
                     ),
                     Row(
                       //crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(width: MediaQuery.of(context).size.width * 0.07),
                         Column(
@@ -299,14 +307,18 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Days",
-                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF).withOpacity(0.6)),
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                  color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.w500, color: Color(0xffD8D8D8)),
+                          style:
+                              TextStyle(fontSize: 35, height: 1, fontWeight: FontWeight.w500, color: Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
@@ -317,14 +329,18 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Hours",
-                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: const Color(0xffFFFFFF).withOpacity(0.6)),
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w700,
+                                  color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.w400, color: const Color(0xffD8D8D8)),
+                          style: TextStyle(
+                              fontSize: 35, height: 1, fontWeight: FontWeight.w400, color: const Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
@@ -346,7 +362,11 @@ class _Home2State extends State<Home2> {
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 35, color: const Color(0xffD8D8D8)),
+                          style: TextStyle(
+                            fontSize: 35,
+                            height: 1,
+                            color: const Color(0xffD8D8D8),
+                          ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
@@ -355,7 +375,7 @@ class _Home2State extends State<Home2> {
                           children: [
                             Text(
                               "$seconds",
-                              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white),
+                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             Text(
                               "Sec",
@@ -417,41 +437,58 @@ class _NewWidgetState extends State<NewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Container(
-               // width: 3,
-                height: 90,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Color(0xffFFFFFF)),
-                padding: EdgeInsets.only(right: 293),
-                child: Image.asset(
-                  'assets/image/Ellipse 14@3x.png',
-                  scale: 2.5
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
                 ),
-              
               ),
-            
-            ],
-          ),
-          Container(
-              child: _controller != null
-                  ? _controller!.value.isInitialized
-                      ? AspectRatio(
-                          aspectRatio: _controller!.value.aspectRatio,
-                          child: VideoPlayer(
-                            _controller!,
-                          ),
-                        )
-                      : Container()
-                  : CircularProgressIndicator(),
-              width: 410,
-              height: 300,
-              color: Color(0xffFFFFFF)),
-        ],
+              child: Row(
+                children: [
+                  Image.asset('assets/image/Ellipse 14@3x.png', scale: 2.5),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Healthy Tasty',
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Sponsored',
+                        style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+                child: _controller != null
+                    ? _controller!.value.isInitialized
+                        ? AspectRatio(
+                            aspectRatio: _controller!.value.aspectRatio,
+                            child: VideoPlayer(
+                              _controller!,
+                            ),
+                          )
+                        : Container()
+                    : CircularProgressIndicator(),
+                width: 410,
+                height: 300,
+                color: Color(0xffFFFFFF)),
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_degi/quizresult.dart';
 
-
 class Quiz extends StatefulWidget {
   Quiz({Key? key}) : super(key: key);
 
@@ -10,7 +9,6 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-
 //List<String> List_naa =["ram","s"] ;
 
   @override
@@ -18,7 +16,23 @@ class _QuizState extends State<Quiz> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Container(
+            child: Center(
+              child: Container(
+                color: Colors.white.withOpacity(.4),
+                padding: EdgeInsets.all(2),
+                child: Icon(Icons.close),
+              ),
+            ),
+          ),
+        ),
+        elevation: 0,
+      ),
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
@@ -34,14 +48,13 @@ class _QuizState extends State<Quiz> {
                 ),
               ),
             ),
-          SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  "assets/image/Vector@2x.png",
-                  scale: 2,
-                ),
+                Image.asset("assets/image/Vector@2x.png", scale: 2),
                 Padding(padding: EdgeInsets.only(left: 5)),
                 Text(
                   "How to ",
@@ -62,10 +75,9 @@ class _QuizState extends State<Quiz> {
                 )
               ],
             ),
-            SizedBox(height: 0.01,),
-            Flexible(
+            Expanded(
               child: ListView.builder(
-                  itemCount: 2,
+                  itemCount: 3,
                   itemBuilder: (BuildContext context, int index) {
                     return const ExpansionTile(
                       title: Text(
@@ -75,10 +87,7 @@ class _QuizState extends State<Quiz> {
                       children: <Widget>[
                         ListTile(
                           title: Text(
-                            "Literally it does not mean anything. It is a sequence of words without a sense of Latin derivation that make up a text also known as filler text, fictitious, blind or placeholder.The Lorem Ipsum text is used to fill spaces designated to host texts that have not yet been published.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                            
-                            
-                            ,
+                            "Literally it does not mean anything. It is a sequence of words without a sense of Latin derivation that make up a text also known as filler text, fictitious, blind or placeholder.The Lorem Ipsum text is used to fill spaces designated to host texts that have not yet been published.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                         )
@@ -86,7 +95,6 @@ class _QuizState extends State<Quiz> {
                     );
                   }),
             ),
-            
           ],
         ),
       ),

@@ -15,7 +15,11 @@ class _ResultState extends State<Result> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
@@ -35,13 +39,17 @@ class _ResultState extends State<Result> {
                 ),
               ),
               Positioned(
-                top: 240,
-                left: 140,
-                child:  RichText(
-                  text: TextSpan(text: "   60", style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white), children: [
-                TextSpan(text: "\n Your score", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
-              ]))
-              ),
+                  top: 240,
+                  left: 140,
+                  child: RichText(
+                      text: TextSpan(
+                          text: "   60",
+                          style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white),
+                          children: [
+                        TextSpan(
+                            text: "\n Your score",
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
+                      ]))),
               // RichText(
               //     text: TextSpan(text: "60", style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white), children: [
               //   TextSpan(text: "Your score", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
@@ -63,45 +71,50 @@ class _ResultState extends State<Result> {
             ],
           ),
           const SizedBox(height: 25),
-          Container(
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  const Text(
-                    '25',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xff1DBC19)),
-                  ),
-                  Text("Total Winner ", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000)))
-                ],
+          Stack(
+            alignment: Alignment.topRight,
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '25',
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xff1DBC19)),
+                        ),
+                        Text("Total Winner ",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000)))
+                      ],
+                    ),
+                    const VerticalDivider(color: Color(0xff000000), thickness: .5),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '\u{20B9}${100}',
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xffFB9633)),
+                        ),
+                        Text("Prize Money",
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                        Text("You win",
+                            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xff727272)))
+                      ],
+                    )
+                  ],
+                ),
+                height: 150,
+                width: 370,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xffDDDDDD), width: 2),
+                  borderRadius: BorderRadius.circular(28),
+                ),
               ),
-              const VerticalDivider(
-                color: Color(0xff000000),
-                thickness: 0.50,
-              ),
-              SizedBox(),
-              Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: 45)),
-                  const Text('\u{20B9}${100}',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xffFB9633),
-                      )),
-                  Text("Prize Money", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000))),
-                  Text("You win", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xff727272)))
-                ],
-              )
-            ]),
-            height: 150,
-            width: 370,
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(0xffDDDDDD), width: 2),
-              borderRadius: BorderRadius.circular(28),
-            ),
+              Positioned(top: -30, right: -5, child: Image.asset('assets/image/crownn.png.png')),
+            ],
           ),
           SizedBox(
             height: 25,
