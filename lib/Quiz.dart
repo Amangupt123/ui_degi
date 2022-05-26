@@ -11,7 +11,7 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-List<String> List_naa =["ram","s"] ;
+//List<String> List_naa =["ram","s"] ;
 
   @override
   Widget build(BuildContext context) {

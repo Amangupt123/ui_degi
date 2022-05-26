@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -34,11 +35,13 @@ class _Home2State extends State<Home2> {
       });
     }
   }
+
   @override
   void initState() {
     timerFunc();
     super.initState();
   }
+
   @override
   void dispose() {
     if (timer != null) {
@@ -46,6 +49,7 @@ class _Home2State extends State<Home2> {
     }
     super.dispose();
   }
+
   void handleTick() {
     if (timeDiff > 0) {
       if (mounted) {
@@ -55,7 +59,6 @@ class _Home2State extends State<Home2> {
               timeDiff = timeDiff - 1;
             } else {
               print('Times up!');
-             
             }
           });
         }
@@ -158,20 +161,11 @@ class _Home2State extends State<Home2> {
                       onTap: (() {
                         showGeneralDialog(
                           context: context,
-                          pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
-                            return Center(
-                              child: Container(
-                                  child: _controller != null
-                                      ? _controller!.value.isInitialized
-                                          ? AspectRatio(
-                                              aspectRatio: _controller!.value.aspectRatio,
-                                              child: VideoPlayer(_controller!),
-                                            )
-                                          : Container()
-                                     : CircularProgressIndicator(),
-                                  width: 384,
-                                  height: 300.0,
-                                  color: Color(0xffFFFFFF)),
+                          pageBuilder: (BuildContext buildContext, Animation<double> animation,
+                              Animation<double> secondaryAnimation) {
+                            return BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: NewWidget(),
                             );
                           },
                           barrierDismissible: true,
@@ -246,10 +240,12 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "    Your subscription will be Ended",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
+                              style:
+                                  TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
                             ),
                             Text("04 May 2022",
-                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
                           ],
                         ),
                         ElevatedButton(
@@ -322,58 +318,56 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Days",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF).withOpacity(0.6)),
+                              style:
+                                  TextStyle(fontSize: 24, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 20, color: Color(0xffD8D8D8)),
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.w500, color: Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
                           children: [
                             Text(
                               "$hours",
-                              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white),
+                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             Text(
                               "Hours",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: const Color(0xffFFFFFF).withOpacity(0.6),
-                              ),
+                              style:
+                                  TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: const Color(0xffFFFFFF)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 20, color: const Color(0xffD8D8D8).withOpacity(0.8)),
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.w400, color: const Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
                           children: [
                             Text(
                               "$minutes",
-                              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white),
+                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                             Text(
                               "Mins",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w500,
                                 color: const Color(0xffFFFFF).withOpacity(0.6),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.06),
                         Text(
                           ":",
-                          style: TextStyle(fontSize: 20, color: const Color(0xffD8D8D8).withOpacity(0.8)),
+                          style: TextStyle(fontSize: 20, color: const Color(0xffD8D8D8)),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
@@ -417,6 +411,64 @@ class _Home2State extends State<Home2> {
             const SizedBox(height: 10),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class NewWidget extends StatefulWidget {
+  @override
+  State<NewWidget> createState() => _NewWidgetState();
+}
+
+class _NewWidgetState extends State<NewWidget> {
+  VideoPlayerController? _controller;
+  @override
+  void initState() {
+    _controller = VideoPlayerController.network(
+      'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+    )..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {
+          _controller!.play();
+        });
+      });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 410,
+            height: 80,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/image/crown.png'),
+                fit: BoxFit.fill,
+              ),
+              shape: BoxShape.circle,
+            ),
+            // color: Colors.red,
+          ),
+          Container(
+              child: _controller != null
+                  ? _controller!.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _controller!.value.aspectRatio,
+                          child: VideoPlayer(
+                            _controller!,
+                          ),
+                        )
+                      : Container()
+                  : CircularProgressIndicator(),
+              width: 410,
+              height: 300,
+              color: Color(0xffFFFFFF)),
+        ],
       ),
     );
   }
