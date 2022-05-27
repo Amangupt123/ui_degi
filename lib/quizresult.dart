@@ -39,15 +39,15 @@ class _ResultState extends State<Result> {
                 ),
               ),
               Positioned(
-                  top: 240,
-                  left: 140,
+                  top: MediaQuery.of(context).size.height*0.3,
+                  left: MediaQuery.of(context).size.width*0.33,
                   child: RichText(
                       text: TextSpan(
-                          text: "   60",
+                          text: "    60",
                           style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white),
                           children: [
                         TextSpan(
-                            text: "\n Your score",
+                            text: "\n   Your score",
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
                       ]))),
               // RichText(
@@ -90,7 +90,7 @@ class _ResultState extends State<Result> {
                             style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000)))
                       ],
                     ),
-                    const VerticalDivider(color: Color(0xff000000), thickness: .5),
+                    const VerticalDivider(color: Color(0xff000000), thickness: 0.5),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -106,55 +106,71 @@ class _ResultState extends State<Result> {
                     )
                   ],
                 ),
-                height: 150,
+                height: 120,
                 width: 370,
                 decoration: BoxDecoration(
                   border: Border.all(color: Color(0xffDDDDDD), width: 2),
                   borderRadius: BorderRadius.circular(28),
                 ),
               ),
-              Positioned(top: -30, right: -5, child: Image.asset('assets/image/crownn.png.png')),
+              Positioned(top:-32,
+              right: -5, child: Image.asset('assets/image/crownn.png.png')),
             ],
           ),
           SizedBox(
-            height: 25,
+            height: 40,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                  height: 72,
-                  width: 72,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Color(0xffFC942D)),
-                  child: Image.asset(
-                    'assets/image/Icon - Home@3x.png',
-                    scale: 3,
-                  )),
-              // SizedBox(width: 1,),
-              Container(
-                height: 72,
-                width: 72,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Color(0xff5AADFF),
-                ),
-                child: Image.asset(
-                  'assets/image/Vector@3x.png',
-                  scale: 3,
-                ),
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [SizedBox(width: MediaQuery.of(context).size.width*0.24,),
+              Column(
+                children: [
+                  Container(
+                      height: 72,
+                      width: 72,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Color(0xffFC942D)),
+                      child: Image.asset(
+                        'assets/image/Icon - Home@3x.png',
+                        scale: 3,
+                      )),
+                      SizedBox(height: 5,),
+                                    Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+
+                ],
+              ),
+              // S
+              SizedBox(width: 1,),SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+              Column(
+                children: [
+                  Container(
+                    height: 72,
+                    width: 72,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color(0xff5AADFF),
+                    ),
+                    child: Image.asset(
+                      'assets/image/Vector@3x.png',
+                      scale: 3,
+                    ),
+                  ),
+                  SizedBox(height: 5,),
+                                Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+
+                ],
               )
             ],
           ),
           SizedBox(
             height: 10,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-              Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+          //     Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+          //   ],
+          // ),
         ]),
       ),
     );

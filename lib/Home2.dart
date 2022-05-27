@@ -21,8 +21,6 @@ class _Home2State extends State<Home2> {
   static const duration = Duration(seconds: 1);
 
   final eventTime = DateTime.parse('2021-01-09 03:41:00');
-
-  // int timeDiff = eventTime.difference(DateTime.now()).inSeconds;
   int timeDiff = DateTime.parse('2022-05-30 03:41:00').difference(DateTime.now()).inSeconds;
   bool isActive = true;
 
@@ -113,7 +111,7 @@ class _Home2State extends State<Home2> {
                       scale: 2,
                     ),
                     Padding(padding: EdgeInsets.only(left: 5)),
-                    Text(
+                    const Text(
                       "How to ",
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                     ),
@@ -121,7 +119,7 @@ class _Home2State extends State<Home2> {
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => Quiz()));
                       },
-                      child: Text(
+                      child: const Text(
                         "Play a Quiz",
                         style: TextStyle(
                           fontSize: 20,
@@ -145,8 +143,7 @@ class _Home2State extends State<Home2> {
                       onTap: (() {
                         showGeneralDialog(
                           context: context,
-                          pageBuilder: (BuildContext buildContext, Animation<double> animation,
-                              Animation<double> secondaryAnimation) {
+                          pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
                             return BackdropFilter(
                               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                               child: NewWidget(),
@@ -159,39 +156,39 @@ class _Home2State extends State<Home2> {
                         );
                       }),
                       child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("assets/image/live_quiz.png"),
+                          image: AssetImage("assets/image/live_quiz@3x.png"),
                           fit: BoxFit.fitWidth,
                         ),
                       )),
                     ),
                     Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/image/leaderboard.png"),
+                        image: AssetImage("assets/image/leaderboard@3x.png"),
                         fit: BoxFit.fitWidth,
                       ),
                     )),
                     Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/image/statistics@2x.png"),
+                        image: AssetImage("assets/image/statistics@3x.png"),
                         fit: BoxFit.fitWidth,
                       ),
                     )),
                     Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/image/Group 5268.png"),
+                        image: AssetImage("assets/image/Group 5@3x.png"),
                         fit: BoxFit.fitWidth,
                       ),
                     )),
                   ],
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(9),
                   shrinkWrap: true,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 0,
                 ),
                 Container(
@@ -217,27 +214,34 @@ class _Home2State extends State<Home2> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: 25,
-                            ),
-                            Text(
-                              "    Your subscription will be Ended",
-                              style:
-                                  TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff505050)),
-                            ),
-                            Text("04 May 2022",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w600, color: const Color(0xff000000))),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              SizedBox(
+                                height: 25,
+                              ),
+                              Text(
+                                "Your subscription will be Ended",
+                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050)),
+                              ),
+                              SizedBox(height: 6),
+                              Text("04 May 2022", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xff000000))),
+                            ],
+                          ),
                         ),
                         ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                              shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius:BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                bottomLeft: Radius.circular(9),
+                                )
+                              ))
                             ),
                             onPressed: () {},
-                            child: Text(
+                            child:  Text(
                               "Buy Now",
                               style: TextStyle(
                                 fontSize: 16,
@@ -251,17 +255,17 @@ class _Home2State extends State<Home2> {
               ],
             ),
             Column(children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
               Container(
-                margin: EdgeInsets.only(top: 82),
+                margin: EdgeInsets.only(top: 100),
                 decoration: BoxDecoration(
                   // color: Color(0xff28527B),
                   border: Border.all(width: 1, color: const Color(0xff28527B)),
                   borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage('assets/image/Group 74454.png'),
                     fit: BoxFit.cover,
                   ),
@@ -273,32 +277,32 @@ class _Home2State extends State<Home2> {
                 //color: Colors.white,
                 child: Column(
                   children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 18),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
                           "assets/image/Group 74440.svg",
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 3,
                           width: 4,
                         ),
                         const Text(
                           "Time left for Next Quiz ",
-                          style: TextStyle(color: Colors.white, fontSize: 23),
+                          style: TextStyle(color: Colors.white, fontSize: 25,fontWeight:FontWeight.w700),
                         ),
                       ],
                     ),
                     const SizedBox(
-                      height: 45,
+                      height: 30,
                     ),
                     Row(
                       //crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.07),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.11),
                         Column(
                           children: [
                             Text(
@@ -307,18 +311,14 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Days",
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color(0xffFFFFFF).withOpacity(0.6)),
+                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                        Text(
+                        const Text(
                           ":",
-                          style:
-                              TextStyle(fontSize: 35, height: 1, fontWeight: FontWeight.w500, color: Color(0xffD8D8D8)),
+                          style: TextStyle(fontSize: 35, height: 1, fontWeight: FontWeight.w500, color: Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
@@ -329,18 +329,14 @@ class _Home2State extends State<Home2> {
                             ),
                             Text(
                               "Hours",
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(0xffFFFFFF).withOpacity(0.6)),
+                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: const Color(0xffFFFFFF).withOpacity(0.6)),
                             ),
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                        Text(
+                        const Text(
                           ":",
-                          style: TextStyle(
-                              fontSize: 35, height: 1, fontWeight: FontWeight.w400, color: const Color(0xffD8D8D8)),
+                          style: TextStyle(fontSize: 35, height: 1, fontWeight: FontWeight.w400, color: Color(0xffD8D8D8)),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                         Column(
@@ -360,12 +356,12 @@ class _Home2State extends State<Home2> {
                           ],
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                        Text(
+                        const Text(
                           ":",
                           style: TextStyle(
                             fontSize: 35,
                             height: 1,
-                            color: const Color(0xffD8D8D8),
+                            color: Color(0xffD8D8D8),
                           ),
                         ),
                         SizedBox(
@@ -400,8 +396,8 @@ class _Home2State extends State<Home2> {
             ]),
             SizedBox(height: 50),
             Positioned(
-              left: 2,
-              top: 84,
+              left: 4,
+              top: 105,
               child: SizedBox(
                 height: 30,
                 child: Image.asset("assets/image/crown.png"),
@@ -427,7 +423,6 @@ class _NewWidgetState extends State<NewWidget> {
     _controller = VideoPlayerController.network(
       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
     )..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {
           _controller!.play();
         });
@@ -445,7 +440,7 @@ class _NewWidgetState extends State<NewWidget> {
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
@@ -458,7 +453,7 @@ class _NewWidgetState extends State<NewWidget> {
                   SizedBox(width: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Healthy Tasty',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
