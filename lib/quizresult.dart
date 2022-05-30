@@ -42,7 +42,7 @@ class _ResultState extends State<Result> {
                   top: MediaQuery.of(context).size.height*0.3,
                   left: MediaQuery.of(context).size.width*0.33,
                   child: RichText(
-                      text: TextSpan(
+                      text: const TextSpan(
                           text: "    60",
                           style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white),
                           children: [
@@ -98,9 +98,9 @@ class _ResultState extends State<Result> {
                           '\u{20B9}${100}',
                           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xffFB9633)),
                         ),
-                        Text("Prize Money",
+                        const Text("Prize Money",
                             style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000))),
-                        Text("You win",
+                        const Text("You win",
                             style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xff727272)))
                       ],
                     )

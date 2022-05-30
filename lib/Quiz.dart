@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_degi/quizresult.dart';
 
+import 'leaderboard.dart';
+
 class Quiz extends StatefulWidget {
   Quiz({Key? key}) : super(key: key);
 
@@ -62,7 +64,7 @@ class _QuizState extends State<Quiz> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Result()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Leaderboard ()));
                   },
                   child: Text(
                     "Play a Quiz",
