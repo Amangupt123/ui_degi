@@ -49,7 +49,8 @@ class _ResultState extends State<Result> {
                         TextSpan(
                             text: "\n   Your score",
                             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
-                      ]))),
+                      ]))
+                      ),
               // RichText(
               //     text: TextSpan(text: "60", style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white), children: [
               //   TextSpan(text: "Your score", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
@@ -164,13 +165,7 @@ class _ResultState extends State<Result> {
           SizedBox(
             height: 10,
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-          //     Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
-          //   ],
-          // ),
+         
         ]),
       ),
     );

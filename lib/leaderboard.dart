@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import 'package:flutter_svg/svg.dart';
+//import 'package:ui_degi/j_contain.dart';
 
 class Leaderboard extends StatefulWidget {
   Leaderboard({Key? key}) : super(key: key);
@@ -115,22 +117,40 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: const BoxDecoration(
-                                    color: Colors.orange,
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/image/Ellipse 4@3x.png"),
-                                      fit: BoxFit.fitWidth,
-                                    )),
+                              Stack(alignment: Alignment.topLeft,
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.orange,
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/image/Ellipse 4@3x.png"),
+                                          fit: BoxFit.fitWidth,
+                                        )),
+                                  ),
+                                  Positioned(
+                                      top: 21,
+                                      right: -22,
+                                      child: Image.asset(
+                                        'assets/image/center clip79@3x.png',
+                                        scale: 2.7,
+                                      ))
+                                ],
                               ),
-                              Text(
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height * 0.01,
+                              ),
+                              const Text(
                                 'Alexa key',
-                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff000000)),
+                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000)),
                               ),
-                              Text('837 pts'),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height * 0.0,
+                              ),
+                              const Text('837 pts', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                             ],
                           ),
                         ),
@@ -139,19 +159,31 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: const BoxDecoration(
-                                    color: Colors.orange,
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/image/Ellipse 3@3x.png"),
-                                      fit: BoxFit.fitWidth,
-                                    )),
+                              Stack( alignment: Alignment.topCenter,
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.orange,
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/image/Ellipse 3@3x.png"),
+                                          fit: BoxFit.fitWidth,
+                                        )),
+                                  ),
+                                    Positioned(
+                                      top: 17,
+                                      right: -17,
+                                      child: Image.asset(
+                                        'assets/image/center clip79@3x.png',
+                                        scale: 2.5,
+                                      ))
+                                ],
                               ),
-                              Text('Name'),
-                              Text('23 stf'),
+                              const Text('Albertus Muller', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                              const Text('840 pts', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                             ],
                           ),
                         ),
@@ -160,20 +192,33 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: const BoxDecoration(
-                                  color: Colors.orange,
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/image/Ellipse@3x.png"),
-                                    fit: BoxFit.fitWidth,
+                              Stack(
+                                alignment: Alignment.topRight,
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.orange,
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: AssetImage("assets/image/Ellipse@3x.png"),
+                                        fit: BoxFit.fitWidth,
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Positioned(
+                                      top: 9,
+                                      right: -19,
+                                      child: Image.asset(
+                                        'assets/image/sticker1@3x.png',
+                                        scale: 2.7,
+                                      ))
+                                ],
                               ),
-                              Text('Name'),
-                              Text('23 stf'),
+                              Text('Jesselyn Eva', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                              Text('823 pts', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                             ],
                           ),
                         )
@@ -185,20 +230,113 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
             ),
             Expanded(
                 child: ListView.builder(
-              itemCount: 6,
+              physics: BouncingScrollPhysics(),
+              itemCount: 66,
               itemBuilder: (context, i) {
-                return ListTile(
-                  title: Text("numberTruthList"),
-                );
-                Container(
-                  height: 50,
-                  width: 50,
-                  color: Colors.red,
-                );
+                return const JContain();
               },
-            ))
+            )),
+            Stack(
+              children: [
+                Positioned(
+                    bottom: 0,
+                    child: SizedBox(
+                      height: 2,
+                    )),
+                Container(
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.08,
+                      ),
+                      const CircleAvatar(
+                        backgroundColor: Color(0xffFFFEFE),
+                        child: Text("50", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.07,
+                      ),
+                      const CircleAvatar(
+                        backgroundColor: Color(0xffFFFEFE),
+                        radius: 24,
+                        backgroundImage: AssetImage("assets/image/Bg50textfor3x.png"),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.07,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                          Text("250 pt", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+                        ],
+                      )
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                  height: 85,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/image/top_header@3x.png"),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class JContain extends StatelessWidget {
+  const JContain({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.05,
+          ),
+          const CircleAvatar(
+            backgroundColor: Color(0xffFFFEFE),
+            child: Text("4", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
+          ),
+          const CircleAvatar(
+            backgroundColor: Color(0xffFFFEFE),
+            radius: 35,
+            backgroundImage: AssetImage("assets/image/Bg@3x.png"),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.07,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text("Jesselyn Eva", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+              Text("780 pts", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+            ],
+          )
+        ],
+      ),
+      height: 100,
+      width: 34,
+      margin: EdgeInsets.all(20),
+      decoration: const BoxDecoration(
+        color: Color(0xffF7F7F4),
+        borderRadius: BorderRadius.all(
+          Radius.circular(15),
+        ),
+        boxShadow: [
+          BoxShadow(color: Color(0xffDDDDDD), spreadRadius: 1),
+        ],
       ),
     );
   }

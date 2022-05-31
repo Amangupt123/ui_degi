@@ -21,7 +21,7 @@ class _Home2State extends State<Home2> {
   static const duration = Duration(seconds: 1);
 
   final eventTime = DateTime.parse('2021-01-09 03:41:00');
-  int timeDiff = DateTime.parse('2022-05-30 03:41:00').difference(DateTime.now()).inSeconds;
+  int timeDiff = DateTime.parse('2022-5-31 03:41:00').difference(DateTime.now()).inSeconds;
   bool isActive = true;
 
   Timer? timer;
@@ -76,14 +76,140 @@ class _Home2State extends State<Home2> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         elevation: 0,
-        leading: SvgPicture.asset(
-          "assets/image/Group 6@3x.svg",
-          height: 5,
-          width: 5,
-          fit: BoxFit.scaleDown,
-        ),
+        leading: Builder(builder: (context) {
+          return GestureDetector(
+            child: InkWell(
+              onTap: (() {
+                Scaffold.of(context).openDrawer();
+              }),
+              child: SvgPicture.asset(
+                "assets/image/Group 6@3x.svg",
+                height: 5,
+                width: 5,
+                fit: BoxFit.scaleDown,
+              ),
+            ),
+          );
+        }),
         actions: [Image.asset("assets/image/iiiiii.png")],
+        automaticallyImplyLeading: false,
       ),
+      drawer: Drawer(
+          child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: Container(
+                child: Row(
+                  children: [SizedBox(width: MediaQuery.of(context).size.width*0.06,),
+                    CircleAvatar(
+                      radius: 35,
+                      backgroundImage:AssetImage("assets/image/dravercontainer 1@3x.png"),
+                    ),SizedBox(width: MediaQuery.of(context).size.width*0.06,),
+                    Text("Alex Carry",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000))
+                       )   ],
+                ),
+                height: MediaQuery.of(context).size.height * 0.12,
+                width: MediaQuery.of(context).size.width * 0.7,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+              ),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/image/drawebackground.png"),
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/home 3@3x.svg"),
+              title: Text(
+                "Home",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/edit.svg"),
+              title: Text(
+                "Edit Profile",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/wallet.svg"),
+              title: Text(
+                "Kitty/Wallet",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/syllabus@3x.svg"),
+              title: Text(
+                "Syllabus",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/practictest.svg"),
+              title: Text(
+                "Practice Test",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/setting.svg"),
+              title: const Text(
+                "Settings",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/Coupon@2x.svg"),
+              title: const Text(
+                "Referral and Coupon Code",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: SvgPicture.asset("assets/image/logout@2x.svg"),
+              title: const Text(
+                "Logout",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff000000)),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ])),
       body: SizedBox(
         height: screenSize.height,
         width: screenSize.width,
@@ -216,8 +342,9 @@ class _Home2State extends State<Home2> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
-                          child: Column(mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
                               SizedBox(
                                 height: 25,
@@ -233,15 +360,14 @@ class _Home2State extends State<Home2> {
                         ),
                         ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
-                              shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius:BorderRadius.only(
-                                topLeft: Radius.circular(9),
-                                bottomLeft: Radius.circular(9),
-                                )
-                              ))
-                            ),
+                                backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
+                                shape: MaterialStateProperty.all(const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(9),
+                                  bottomLeft: Radius.circular(9),
+                                )))),
                             onPressed: () {},
-                            child:  Text(
+                            child: const Text(
                               "Buy Now",
                               style: TextStyle(
                                 fontSize: 16,
@@ -290,7 +416,7 @@ class _Home2State extends State<Home2> {
                         ),
                         const Text(
                           "Time left for Next Quiz ",
-                          style: TextStyle(color: Colors.white, fontSize: 25,fontWeight:FontWeight.w700),
+                          style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
@@ -384,7 +510,7 @@ class _Home2State extends State<Home2> {
                           ],
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.08,
+                          width: MediaQuery.of(context).size.width * 0.03,
                         ),
                       ],
                     )
