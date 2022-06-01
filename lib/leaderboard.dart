@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ui_degi/details.dart';
 //import 'package:ui_degi/j_contain.dart';
 
 class Leaderboard extends StatefulWidget {
@@ -43,6 +44,19 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
           width: 5,
           fit: BoxFit.scaleDown,
         ),
+         actions: [InkWell(onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>Details ())),
+       child: Container(
+            child: Center(
+              child: Container(
+                color: Colors.white.withOpacity(.4),
+                padding: EdgeInsets.all(2),
+                child: Icon(Icons.arrow_right_alt),
+              ),
+            ),
+          ),
+        ), 
+       
+      ],
         elevation: 0,
       ),
       body: Container(
@@ -258,8 +272,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                       ),
                       const CircleAvatar(
                         backgroundColor: Color(0xffFFFEFE),
-                        radius: 24,
-                        backgroundImage: AssetImage("assets/image/Bg50textfor3x.png"),
+                        radius: 25,
+                        backgroundImage: AssetImage("assets/image/Bg50textfor3x.png",),
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.07,
@@ -267,8 +281,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-                          Text("250 pt", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+                          Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500,color: Color(0xffFFFFFF))),
+                          Text("250 pt", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500,color: Color(0xffFFFFFF)))
                         ],
                       )
                     ],
@@ -277,7 +291,7 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                   height: 85,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/image/top_header@3x.png"),
+                      image: AssetImage("assets/image/bottem50@3x.png"),
                       fit: BoxFit.fitWidth,
                     ),
                   ),

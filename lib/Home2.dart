@@ -21,7 +21,7 @@ class _Home2State extends State<Home2> {
   static const duration = Duration(seconds: 1);
 
   final eventTime = DateTime.parse('2021-01-09 03:41:00');
-  int timeDiff = DateTime.parse('2022-5-31 03:41:00').difference(DateTime.now()).inSeconds;
+  int timeDiff = DateTime.parse('2022-05-31 03:41:00').difference(DateTime.now()).inSeconds;
   bool isActive = true;
 
   Timer? timer;

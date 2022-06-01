@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:ui_degi/leaderboard.dart';
 
 class Result extends StatefulWidget {
   Result({Key? key}) : super(key: key);
@@ -15,11 +16,20 @@ class _ResultState extends State<Result> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0, actions: [
+        InkWell(
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Leaderboard())),
+          child: Container(
+            child: Center(
+              child: Container(
+                color: Colors.white.withOpacity(.4),
+                padding: EdgeInsets.all(2),
+                child: Icon(Icons.arrow_upward),
+              ),
+            ),
+          ),
+        ),
+      ]),
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
@@ -39,18 +49,15 @@ class _ResultState extends State<Result> {
                 ),
               ),
               Positioned(
-                  top: MediaQuery.of(context).size.height*0.3,
-                  left: MediaQuery.of(context).size.width*0.33,
+                  top: MediaQuery.of(context).size.height * 0.3,
+                  left: MediaQuery.of(context).size.width * 0.33,
                   child: RichText(
                       text: const TextSpan(
                           text: "    60",
                           style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white),
                           children: [
-                        TextSpan(
-                            text: "\n   Your score",
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
-                      ]))
-                      ),
+                        TextSpan(text: "\n   Your score", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
+                      ]))),
               // RichText(
               //     text: TextSpan(text: "60", style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700, color: Colors.white), children: [
               //   TextSpan(text: "Your score", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white))
@@ -87,8 +94,7 @@ class _ResultState extends State<Result> {
                           '25',
                           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xff1DBC19)),
                         ),
-                        Text("Total Winner ",
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000)))
+                        Text("Total Winner ", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000)))
                       ],
                     ),
                     const VerticalDivider(color: Color(0xff000000), thickness: 0.5),
@@ -99,10 +105,8 @@ class _ResultState extends State<Result> {
                           '\u{20B9}${100}',
                           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Color(0xffFB9633)),
                         ),
-                        const Text("Prize Money",
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000))),
-                        const Text("You win",
-                            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xff727272)))
+                        const Text("Prize Money", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                        const Text("You win", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xff727272)))
                       ],
                     )
                   ],
@@ -114,8 +118,7 @@ class _ResultState extends State<Result> {
                   borderRadius: BorderRadius.circular(28),
                 ),
               ),
-              Positioned(top:-32,
-              right: -5, child: Image.asset('assets/image/crownn.png.png')),
+              Positioned(top: -32, right: -5, child: Image.asset('assets/image/crownn.png.png')),
             ],
           ),
           SizedBox(
@@ -123,7 +126,10 @@ class _ResultState extends State<Result> {
           ),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [SizedBox(width: MediaQuery.of(context).size.width*0.24,),
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.24,
+              ),
               Column(
                 children: [
                   Container(
@@ -134,13 +140,19 @@ class _ResultState extends State<Result> {
                         'assets/image/Icon - Home@3x.png',
                         scale: 3,
                       )),
-                      SizedBox(height: 5,),
-                                    Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text("Home", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
                 ],
               ),
               // S
-              SizedBox(width: 1,),SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+              SizedBox(
+                width: 1,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.12,
+              ),
               Column(
                 children: [
                   Container(
@@ -155,9 +167,10 @@ class _ResultState extends State<Result> {
                       scale: 3,
                     ),
                   ),
-                  SizedBox(height: 5,),
-                                Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
-
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text("Leaderboard", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050)))
                 ],
               )
             ],
@@ -165,7 +178,6 @@ class _ResultState extends State<Result> {
           SizedBox(
             height: 10,
           ),
-         
         ]),
       ),
     );
