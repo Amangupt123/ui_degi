@@ -44,24 +44,23 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
           width: 5,
           fit: BoxFit.scaleDown,
         ),
-         actions: [InkWell(onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>Details ())),
-       child: Container(
-            child: Center(
-              child: Container(
-                color: Colors.white.withOpacity(.4),
-                padding: EdgeInsets.all(2),
-                child: Icon(Icons.arrow_right_alt),
+        actions: [
+          InkWell(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Details())),
+            child: Container(
+              child: Center(
+                child: Container(
+                  color: Colors.white.withOpacity(.4),
+                  padding: EdgeInsets.all(2),
+                  child: Icon(Icons.arrow_right_alt),
+                ),
               ),
             ),
           ),
-        ), 
-       
-      ],
+        ],
         elevation: 0,
       ),
       body: Container(
-        height: screenSize.height,
-        width: screenSize.width,
         child: Column(
           children: [
             Container(
@@ -74,9 +73,7 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                 ),
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -131,7 +128,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Stack(alignment: Alignment.topLeft,
+                              Stack(
+                                alignment: Alignment.topLeft,
                                 clipBehavior: Clip.none,
                                 children: [
                                   Container(
@@ -173,7 +171,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Stack( alignment: Alignment.topCenter,
+                              Stack(
+                                alignment: Alignment.topCenter,
                                 clipBehavior: Clip.none,
                                 children: [
                                   Container(
@@ -187,7 +186,7 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                                           fit: BoxFit.fitWidth,
                                         )),
                                   ),
-                                    Positioned(
+                                  Positioned(
                                       top: 17,
                                       right: -17,
                                       child: Image.asset(
@@ -196,7 +195,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                                       ))
                                 ],
                               ),
-                              const Text('Albertus Muller', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                              const Text('Albertus Muller',
+                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                               const Text('840 pts', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                             ],
                           ),
@@ -243,61 +243,59 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
               ),
             ),
             Expanded(
-                child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemCount: 66,
-              itemBuilder: (context, i) {
-                return const JContain();
-              },
-            )),
-            Stack(
-              children: [
-                Positioned(
-                    bottom: 0,
-                    child: SizedBox(
-                      height: 2,
-                    )),
-                Container(
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.08,
-                      ),
-                      const CircleAvatar(
-                        backgroundColor: Color(0xffFFFEFE),
-                        child: Text("50", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.07,
-                      ),
-                      const CircleAvatar(
-                        backgroundColor: Color(0xffFFFEFE),
-                        radius: 25,
-                        backgroundImage: AssetImage("assets/image/Bg50textfor3x.png",),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.07,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500,color: Color(0xffFFFFFF))),
-                          Text("250 pt", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500,color: Color(0xffFFFFFF)))
-                        ],
-                      )
-                    ],
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: 66,
+                itemBuilder: (context, i) => const JContain(),
+              ),
+            ),
+            const SizedBox(height: 2),
+            Container(
+              width: MediaQuery.of(context).size.width * 1,
+              height: MediaQuery.of(context).size.height * 0.13,
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(image: AssetImage("assets/image/bottem50@3x.png"), fit: BoxFit.cover),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.06,
                   ),
-                  width: MediaQuery.of(context).size.width,
-                  height: 85,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/image/bottem50@3x.png"),
-                      fit: BoxFit.fitWidth,
+                  const CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Color(0xffDBDBDB),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Color(0xffFFFEFE),
+                      child: Text("50",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
                     ),
                   ),
-                ),
-              ],
-            )
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.02,
+                  ),
+                  const CircleAvatar(
+                    backgroundColor: Color(0xffFFFEFE),
+                    radius: 29,
+                    backgroundImage: AssetImage("assets/image/Bg50textfor3x.png"),
+                  ),
+                  Column(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        width: MediaQuery.of(context).size.width * 0.3,
+                      ),
+                      Text("Alex Carry",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF))),
+                      Text("250 pt",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)))
+                    ],
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -316,9 +314,14 @@ class JContain extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.05,
           ),
-          const CircleAvatar(
-            backgroundColor: Color(0xffFFFEFE),
-            child: Text("4", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+          CircleAvatar(
+            radius: 22,
+            backgroundColor: Color(0xffDBDBDB),
+            child: const CircleAvatar(
+              radius: 20,
+              backgroundColor: Color(0xffFFFEFE),
+              child: Text("4", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+            ),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.03,
