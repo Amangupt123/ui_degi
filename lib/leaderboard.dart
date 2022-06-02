@@ -48,10 +48,12 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
           InkWell(
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Details())),
             child: Container(
+              height: 19,
+              width: 60,
               child: Center(
                 child: Container(
                   color: Colors.white.withOpacity(.4),
-                  padding: EdgeInsets.all(2),
+                  padding: EdgeInsets.all(4),
                   child: Icon(Icons.arrow_right_alt),
                 ),
               ),
@@ -78,7 +80,6 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  // give the tab bar a height [can change hheight to preferred height]
                   Container(
                     height: 50,
                     decoration: BoxDecoration(
@@ -89,8 +90,6 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                     ),
                     child: TabBar(
                       controller: _tabController,
-
-                      // give the indicator a decoration (color and border radius)
                       indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             10.0,
@@ -99,14 +98,10 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                           border: Border.all(width: 4.5, color: Colors.orange)),
                       labelColor: Colors.orange,
                       unselectedLabelColor: Colors.white,
-
                       tabs: const [
-                        // first tab [you can add an icon using the icon property]
                         Tab(
                           text: 'Daily',
                         ),
-
-                        // second tab [you can add an icon using the icon property]
                         Tab(
                           text: 'Monthly',
                         ),
@@ -145,10 +140,10 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                                   ),
                                   Positioned(
                                       top: 21,
-                                      right: -22,
-                                      child: Image.asset(
-                                        'assets/image/center clip79@3x.png',
-                                        scale: 2.7,
+                                      right: -14,
+                                      child: SvgPicture.asset(
+                                        'assets/image/sticker200@3x.svg',
+                                        // scale: 2.7,
                                       ))
                                 ],
                               ),
@@ -189,14 +184,13 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                                   Positioned(
                                       top: 17,
                                       right: -17,
-                                      child: Image.asset(
-                                        'assets/image/center clip79@3x.png',
-                                        scale: 2.5,
+                                      child: SvgPicture.asset(
+                                        'assets/image/sticker1@3x.svg',
+                                        //scale: 2.5,
                                       ))
                                 ],
                               ),
-                              const Text('Albertus Muller',
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                              const Text('Albertus Muller', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                               const Text('840 pts', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                             ],
                           ),
@@ -225,9 +219,9 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                                   Positioned(
                                       top: 9,
                                       right: -19,
-                                      child: Image.asset(
-                                        'assets/image/sticker1@3x.png',
-                                        scale: 2.7,
+                                      child: SvgPicture.asset(
+                                        'assets/image/sticker3 74729@3x.svg',
+                                        // scale: 2.7,
                                       ))
                                 ],
                               ),
@@ -252,7 +246,7 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
             const SizedBox(height: 2),
             Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.13,
+              height: MediaQuery.of(context).size.height * 0.11,
               decoration: const BoxDecoration(
                 color: Colors.red,
                 image: DecorationImage(image: AssetImage("assets/image/bottem50@3x.png"), fit: BoxFit.cover),
@@ -268,8 +262,7 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                     child: CircleAvatar(
                       radius: 20,
                       backgroundColor: Color(0xffFFFEFE),
-                      child: Text("50",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                      child: Text("50", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
                     ),
                   ),
                   SizedBox(
@@ -284,13 +277,14 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.04,
+                        height: MediaQuery.of(context).size.height * 0.03,
                         width: MediaQuery.of(context).size.width * 0.3,
                       ),
-                      Text("Alex Carry",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF))),
-                      Text("250 pt",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)))
+                      Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF))),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.006,
+                      ),
+                      Text("250 pt", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xffFFFFFF)))
                     ],
                   )
                 ],

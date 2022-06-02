@@ -24,7 +24,7 @@ class _ResultState extends State<Result> {
               child: Container(
                 color: Colors.white.withOpacity(.4),
                 padding: EdgeInsets.all(2),
-                child: Icon(Icons.arrow_upward),
+                child: Icon(Icons.arrow_back_ios_new_rounded),
               ),
             ),
           ),
@@ -35,6 +35,8 @@ class _ResultState extends State<Result> {
         width: screenSize.width,
         child: Column(children: [
           Stack(
+            alignment: Alignment.topLeft,
+            clipBehavior: Clip.none,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
