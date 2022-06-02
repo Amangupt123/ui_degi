@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ChangePassword.dart';
 import 'leaderboard.dart';
 
 class Details extends StatefulWidget {
@@ -18,16 +19,17 @@ class _DetailsState extends State<Details> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.019),
             Text(
               "Master Minds",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.005),
             Text(
               "Date:17 Apr 2022",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -42,6 +44,22 @@ class _DetailsState extends State<Details> {
             fit: BoxFit.scaleDown,
           ),
         ),
+        actions: [
+          InkWell(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Password())),
+            child: Container(
+              height: 19,
+              width: 60,
+              child: Center(
+                child: Container(
+                  color: Colors.white.withOpacity(.4),
+                  padding: EdgeInsets.all(2),
+                  child: Icon(Icons.arrow_right_alt),
+                ),
+              ),
+            ),
+          ),
+        ],
         elevation: 0,
       ),
       body: Container(
@@ -70,10 +88,8 @@ class _DetailsState extends State<Details> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text("10",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-                          Text("Total Questions",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                          Text("10", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                          Text("Total Questions", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
@@ -92,10 +108,8 @@ class _DetailsState extends State<Details> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text("08",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-                          Text("Correct Answer",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                          Text("08", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                          Text("Correct Answer", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
@@ -113,10 +127,8 @@ class _DetailsState extends State<Details> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text("02",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
-                          Text("Wrong Answer",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                          Text("02", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                          Text("Wrong Answer", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
@@ -139,7 +151,7 @@ class _DetailsState extends State<Details> {
                   Column(
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.009,
+                        height: MediaQuery.of(context).size.height * 0.005,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(19), topRight: Radius.circular(19)),
@@ -147,6 +159,7 @@ class _DetailsState extends State<Details> {
                         ),
                       ),
                       Container(
+                        padding: EdgeInsets.only(left: 16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -163,18 +176,20 @@ class _DetailsState extends State<Details> {
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.02,
                                     ),
-                                    const CircleAvatar(
-                                      backgroundColor: Color(0xffFFFEFE),
-                                      child: Text("B",
-                                          style: TextStyle(
-                                              fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                    CircleAvatar(
+                                      radius: 22,
+                                      backgroundColor: Color(0xffDBDBDB),
+                                      child: CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffF4F6F8),
+                                        child: Text("B",
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                      ),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.04,
                                     ),
-                                    Text("Equator",
-                                        style: TextStyle(
-                                            fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
+                                    Text("Equator", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
                                   ],
                                 ),
                                 height: MediaQuery.of(context).size.height * 0.08,
@@ -186,17 +201,14 @@ class _DetailsState extends State<Details> {
                             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                             Row(
                               children: [
-                                Padding(padding: EdgeInsets.all(10)),
+                                //  Padding(padding: EdgeInsets.all(10)),
                                 SvgPicture.asset("assets/image/smile 7.svg"),
                                 SizedBox(
                                   width: MediaQuery.of(context).size.height * 0.01,
                                 ),
                                 Text("Your answer is ",
-                                    style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
-                                Text("Correct",
-                                    style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                                Text("Correct", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],
@@ -204,8 +216,7 @@ class _DetailsState extends State<Details> {
                         height: MediaQuery.of(context).size.height * 0.20,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
                           color: Colors.white,
                           border: Border.all(color: Colors.green),
                         ),
@@ -213,12 +224,12 @@ class _DetailsState extends State<Details> {
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   Column(
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.009,
+                        height: MediaQuery.of(context).size.height * 0.005,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(19), topRight: Radius.circular(19)),
@@ -226,6 +237,7 @@ class _DetailsState extends State<Details> {
                         ),
                       ),
                       Container(
+                        padding: EdgeInsets.only(left: 16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -242,18 +254,21 @@ class _DetailsState extends State<Details> {
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.02,
                                     ),
-                                    const CircleAvatar(
-                                      backgroundColor: Color(0xffFFFEFE),
-                                      child: Text("A",
-                                          style: TextStyle(
-                                              fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff000000))),
+                                    CircleAvatar(
+                                      radius: 22,
+                                      backgroundColor: Color(0xffDBDBDB),
+                                      child: CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffF4F6F8),
+                                        child: Text("A",
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                      ),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.04,
                                     ),
                                     const Text("Thomas Hardy",
-                                        style: TextStyle(
-                                            fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xffFF4208)))
+                                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xffFF4208)))
                                   ],
                                 ),
                                 height: MediaQuery.of(context).size.height * 0.08,
@@ -271,18 +286,21 @@ class _DetailsState extends State<Details> {
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.02,
                                     ),
-                                    const CircleAvatar(
-                                      backgroundColor: Color(0xffFFFEFE),
-                                      child: Text("C",
-                                          style: TextStyle(
-                                              fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                    CircleAvatar(
+                                      radius: 22,
+                                      backgroundColor: Color(0xffDBDBDB),
+                                      child: CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffF4F6F8),
+                                        child: Text("C",
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                      ),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.04,
                                     ),
                                     const Text("George Orwell",
-                                        style: TextStyle(
-                                            fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
+                                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
                                   ],
                                 ),
                                 height: MediaQuery.of(context).size.height * 0.08,
@@ -294,17 +312,14 @@ class _DetailsState extends State<Details> {
                             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                             Row(
                               children: [
-                                const Padding(padding: EdgeInsets.all(10)),
+                                //  const Padding(padding: EdgeInsets.all(0)),
                                 SvgPicture.asset("assets/image/Red Smile@2x.svg"),
                                 SizedBox(
                                   width: MediaQuery.of(context).size.height * 0.01,
                                 ),
                                 const Text("Your answer A is ",
-                                    style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
-                                const Text("Correct",
-                                    style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                                const Text("Correct", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],
@@ -312,17 +327,16 @@ class _DetailsState extends State<Details> {
                         height: MediaQuery.of(context).size.height * 0.30,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
                           color: Colors.white,
                           border: Border.all(color: Colors.red),
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
+                        height: MediaQuery.of(context).size.height * 0.03,
                       ),
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.009,
+                        height: MediaQuery.of(context).size.height * 0.005,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(19), topRight: Radius.circular(19)),
@@ -330,6 +344,7 @@ class _DetailsState extends State<Details> {
                         ),
                       ),
                       Container(
+                        padding: EdgeInsets.only(left: 16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -347,17 +362,20 @@ class _DetailsState extends State<Details> {
                                       width: MediaQuery.of(context).size.width * 0.02,
                                     ),
                                     CircleAvatar(
-                                      backgroundColor: Color(0xffFFFEFE),
-                                      child: Text("B",
-                                          style: TextStyle(
-                                              fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                      radius: 22,
+                                      backgroundColor: Color(0xffDBDBDB),
+                                      child: CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffF4F6F8),
+                                        child: Text("B",
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+                                      ),
                                     ),
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width * 0.04,
                                     ),
                                     Text("Agra, India",
-                                        style: TextStyle(
-                                            fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
+                                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff1DBC19)))
                                   ],
                                 ),
                                 height: MediaQuery.of(context).size.height * 0.08,
@@ -369,26 +387,22 @@ class _DetailsState extends State<Details> {
                             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                             Row(
                               children: [
-                                Padding(padding: EdgeInsets.all(10)),
+                                // Padding(padding: EdgeInsets.all(10)),
                                 SvgPicture.asset("assets/image/smile 7.svg"),
                                 SizedBox(
                                   width: MediaQuery.of(context).size.height * 0.01,
                                 ),
                                 Text("Your answer is ",
-                                    style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
-                                Text("Correct",
-                                    style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                                Text("Correct", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],
                         ),
-                        height: MediaQuery.of(context).size.height * 0.32,
+                        height: MediaQuery.of(context).size.height * 0.27,
                         width: MediaQuery.of(context).size.width * 0.96,
                         decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(9), bottomRight: Radius.circular(9)),
                           color: Colors.white,
                           border: Border.all(color: Colors.green),
                         ),
