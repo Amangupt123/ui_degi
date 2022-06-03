@@ -88,7 +88,8 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                         10,
                       ),
                     ),
-                    child: TabBar(
+                    child: TabBar( labelStyle: TextStyle(fontSize: 19.0,fontFamily: 'Family Name',fontWeight: FontWeight.w400),  //For Selected tab
+                              unselectedLabelStyle: TextStyle(fontSize: 19.0,fontFamily: 'Family Name',fontWeight: FontWeight.w400),
                       controller: _tabController,
                       indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(
@@ -272,9 +273,10 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                     backgroundColor: Color(0xffFFFEFE),
                     radius: 29,
                     backgroundImage: AssetImage("assets/image/Bg50textfor3x.png"),
-                  ),
-                  Column(
-                    // mainAxisAlignment: MainAxisAlignment.center,
+                  ),Padding(padding: EdgeInsets.only(left: 20)),
+                  //SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                     //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
@@ -314,7 +316,7 @@ class JContain extends StatelessWidget {
             child: const CircleAvatar(
               radius: 20,
               backgroundColor: Color(0xffFFFEFE),
-              child: Text("4", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff000000))),
+              child: Text("4", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000))),
             ),
           ),
           SizedBox(
@@ -329,19 +331,21 @@ class JContain extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.07,
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Text("Jesselyn Eva", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-              Text("780 pts", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500))
+              Text("Jesselyn Eva", style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: Color(0xff000000))),
+              SizedBox(height: 8,),
+              Text("780 pts", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400))
             ],
           )
         ],
       ),
       height: 100,
       width: 34,
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(10),
       decoration: const BoxDecoration(
-        color: Color(0xffF7F7F4),
+        color: Color(0xffFFFFFF),
         borderRadius: BorderRadius.all(
           Radius.circular(15),
         ),

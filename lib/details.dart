@@ -89,16 +89,16 @@ class _DetailsState extends State<Details> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text("10",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color(0xff505050))),
                           Text("Total Questions",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
                       width: MediaQuery.of(context).size.width * 0.30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: const Color(0xff6D5CFB).withOpacity(0.1),
+                        color: const Color(0xff6D5CFB).withOpacity(0.06),
                       ),
                     )
                   ],
@@ -111,16 +111,16 @@ class _DetailsState extends State<Details> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text("08",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color(0xff0FB469))),
                           Text("Correct Answer",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
                       width: MediaQuery.of(context).size.width * 0.30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: const Color(0xff4DE19E).withOpacity(0.1),
+                        color: const Color(0xff4DE19E).withOpacity(0.06),
                       ),
                     )
                   ],
@@ -132,16 +132,16 @@ class _DetailsState extends State<Details> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text("02",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff505050))),
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color(0xffFF4208))),
                           Text("Wrong Answer",
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xff505050)))
+                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050)))
                         ],
                       ),
                       height: MediaQuery.of(context).size.height * 0.14,
                       width: MediaQuery.of(context).size.width * 0.30,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: const Color(0xffFC6739).withOpacity(0.1),
+                        color: const Color(0xffFC6739).withOpacity(0.06),
                       ),
                     )
                   ],
@@ -172,7 +172,7 @@ class _DetailsState extends State<Details> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
-                            Text("1. Which on of the following is the greatest circle?"),
+                            Text("1. Which on of the following is the greatest circle?",style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000))),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
@@ -217,10 +217,10 @@ class _DetailsState extends State<Details> {
                                 ),
                                 const Text("Your answer is ",
                                     style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff505050))),
                                 const Text("Correct",
                                     style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                        TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],
@@ -257,9 +257,10 @@ class _DetailsState extends State<Details> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
-                            Text("2. Who is the author of the book 'Nineteen Eighty Four'?"),
+                            Text("2. Who is the author of the book 'Nineteen Eighty Four'?", style:
+                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000))),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Container(
                                 child: Row(
@@ -283,17 +284,17 @@ class _DetailsState extends State<Details> {
                                     ),
                                     const Text("Thomas Hardy",
                                         style: TextStyle(
-                                            fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xffFF4208)))
+                                            fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xffFF4208)))
                                   ],
                                 ),
                                 height: MediaQuery.of(context).size.height * 0.08,
                                 width: MediaQuery.of(context).size.width * 0.70,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: const Color(0xffFC6739).withOpacity(0.1),
+                                  color: const Color(0xffFC6739).withOpacity(0.09),
                                 )),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
+                              height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Container(
                                 child: Row(
@@ -336,10 +337,10 @@ class _DetailsState extends State<Details> {
                                 ),
                                 const Text("Your answer A is ",
                                     style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
-                                const Text("Correct",
+                                        TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Color(0xff505050))),
+                                const Text("wrong",
                                     style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                        TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],
@@ -372,7 +373,8 @@ class _DetailsState extends State<Details> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
-                            const Text("3. Where is the Taj Mahal located?"),
+                            const Text("3. Where is the Taj Mahal located?", style:
+                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000))),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.02,
                             ),
@@ -417,10 +419,10 @@ class _DetailsState extends State<Details> {
                                 ),
                                 const Text("Your answer is ",
                                     style:
-                                        TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                                        TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Color(0xff505050))),
                                 const Text("Correct",
                                     style:
-                                        TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xff505050)))
+                                        TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Color(0xff505050)))
                               ],
                             )
                           ],

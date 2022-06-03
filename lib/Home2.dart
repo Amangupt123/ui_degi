@@ -105,27 +105,30 @@ class _Home2State extends State<Home2> {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height * 0.26,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.06,
-                        ),
-                        CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage("assets/image/dravercontainer 1@3x.png"),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.06,
-                        ),
-                        Text("Alex Carry", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000)))
-                      ],
-                    ),
-                    height: MediaQuery.of(context).size.height * 0.12,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Container(
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.06,
+                          ),
+                          CircleAvatar(
+                            radius: 35,
+                            backgroundImage: AssetImage("assets/image/dravercontainer 1@3x.png"),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.06,
+                          ),
+                          Text("Alex Carry", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color(0xff1A051D)))
+                        ],
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.12,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
                     ),
                   ),
                   alignment: Alignment.center,
@@ -137,7 +140,7 @@ class _Home2State extends State<Home2> {
                   ),
                 ),
                 Positioned(
-                  top: 25,
+                  top: 34,
                   right: -15,
                   child: SvgPicture.asset(
                     'assets/image/cut 14@2x.svg',
@@ -160,7 +163,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/edit.svg"),
@@ -173,7 +176,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/wallet.svg"),
@@ -186,7 +189,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/syllabus@3x.svg"),
@@ -199,7 +202,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/practictest.svg"),
@@ -212,7 +215,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/setting.svg"),
@@ -225,7 +228,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/Coupon@2x.svg"),
@@ -238,7 +241,7 @@ class _Home2State extends State<Home2> {
               },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             ListTile(
               leading: SvgPicture.asset("assets/image/logout@2x.svg"),

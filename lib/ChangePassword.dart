@@ -35,8 +35,8 @@ class _PasswordState extends State<Password> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: SvgPicture.asset("assets/image/information@2x.svg"),
+            padding: const EdgeInsets.only(right: 16),
+            child: SvgPicture.asset("assets/image/information@2x.svg",width: 25,),
           )
         ],
         elevation: 0,
@@ -234,11 +234,11 @@ class _PasswordState extends State<Password> {
                         height: MediaQuery.of(context).size.height * 0.07,
                         width: MediaQuery.of(context).size.width * 0.95,
                         decoration:
-                            BoxDecoration(color: const Color(0xffF4A42A), borderRadius: BorderRadius.circular(10)),
+                            BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
                         child: const Center(
                             child: Text(
                           'Save',
-                          style: TextStyle(color: Color(0xffFFFFFF), fontWeight: FontWeight.w600, fontSize: 20),
+                          style: TextStyle(color: Color(0xffFFFFFF), fontWeight: FontWeight.w700, fontSize: 21),
                         )),
                       ),
                       Positioned(
