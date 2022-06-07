@@ -48,14 +48,57 @@ class _StatisticsState extends State<Statistics> {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height*0.06,),
-            Container( height: 136,width: 343,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Container(
+              height: 136,
+              width: 370,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/image/top_header@3x.png"),
+                  image: AssetImage("assets/image/background.png"),
                   fit: BoxFit.fitWidth,
                 ),
-              ),)
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text("data"), Text("data")],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
+            ),
+            Row(
+              //  crossAxisAlignment: CrossAxisAlignment.start,
+              //  mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(padding: EdgeInsets.all(7)),
+                Container(
+                  width: 7,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(19), bottomLeft: Radius.circular(19)),
+                    color: Colors.red,
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                        const BorderRadius.only(topRight: Radius.circular(9), bottomRight: Radius.circular(9)),
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text("date"), Text("data")],
+                  ),
+                ),
+              ],
+            )
           ]),
         ));
   }
