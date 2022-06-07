@@ -88,8 +88,9 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                         10,
                       ),
                     ),
-                    child: TabBar( labelStyle: TextStyle(fontSize: 19.0,fontFamily: 'Family Name',fontWeight: FontWeight.w400),  //For Selected tab
-                              unselectedLabelStyle: TextStyle(fontSize: 19.0,fontFamily: 'Family Name',fontWeight: FontWeight.w400),
+                    child: TabBar(
+                      labelStyle: TextStyle(fontSize: 19.0, fontFamily: 'Family Name', fontWeight: FontWeight.w400), //For Selected tab
+                      unselectedLabelStyle: TextStyle(fontSize: 19.0, fontFamily: 'Family Name', fontWeight: FontWeight.w400),
                       controller: _tabController,
                       indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(
@@ -273,10 +274,12 @@ class _LeaderboardState extends State<Leaderboard> with SingleTickerProviderStat
                     backgroundColor: Color(0xffFFFEFE),
                     radius: 29,
                     backgroundImage: AssetImage("assets/image/Bg50textfor3x.png"),
-                  ),Padding(padding: EdgeInsets.only(left: 20)),
+                  ),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   //SizedBox(height: MediaQuery.of(context).size.height*0.03,),
-                  Column(crossAxisAlignment: CrossAxisAlignment.start,
-                     //mainAxisAlignment: MainAxisAlignment.center,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.03,
@@ -335,7 +338,9 @@ class JContain extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text("Jesselyn Eva", style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: Color(0xff000000))),
-              SizedBox(height: 8,),
+              SizedBox(
+                height: 8,
+              ),
               Text("780 pts", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400))
             ],
           )
