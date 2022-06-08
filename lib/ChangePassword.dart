@@ -25,15 +25,15 @@ class _PasswordState extends State<Password> {
         ),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        leading: InkWell(
-          onTap: (() => Navigator.pop(context, MaterialPageRoute(builder: (context) => Details()))),
-          child: SvgPicture.asset(
-            "assets/image/arrow29@3x.svg",
-            height: 5,
-            width: 5,
-            fit: BoxFit.scaleDown,
-          ),
-        ),
+        // leading: InkWell(
+        //   onTap: (() => Navigator.pop(context, MaterialPageRoute(builder: (context) => Details()))),
+        //   child: SvgPicture.asset(
+        //     "assets/image/arrow29@3x.svg",
+        //     height: 5,
+        //     width: 5,
+        //     fit: BoxFit.scaleDown,
+        //   ),
+        // ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),

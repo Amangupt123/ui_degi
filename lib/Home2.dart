@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ui_degi/leaderboard.dart';
 import 'package:video_player/video_player.dart';
 
 import 'Quiz.dart';
@@ -333,13 +334,17 @@ class _Home2State extends State<Home2> {
                         ),
                       )),
                     ),
-                    Container(
-                        decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/image/leaderboard@3x.png"),
-                        fit: BoxFit.fitWidth,
-                      ),
-                    )),
+                    InkWell(onTap: (() {
+                       Navigator.push(context, MaterialPageRoute(builder: (context) =>Leaderboard()));
+                    }),
+                      child: Container(
+                          decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/image/leaderboard@3x.png"),
+                          fit: BoxFit.fitWidth,
+                        ),
+                      )),
+                    ),
                     Container(
                         decoration: const BoxDecoration(
                       image: DecorationImage(

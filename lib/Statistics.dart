@@ -13,9 +13,8 @@ class Statistics extends StatefulWidget {
 class _StatisticsState extends State<Statistics> {
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
-         extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: const Text("Statistics", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400)),
           backgroundColor: Colors.transparent,
@@ -25,26 +24,20 @@ class _StatisticsState extends State<Statistics> {
             InkWell(
               onTap: () {
                 showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder( // <-- SEE HERE
-          borderRadius: BorderRadius.vertical( 
-            top: Radius.circular(30),
-          ),
-        ),
-      builder: (_) {
-        return GestureDetector(
-          onTap: () => Navigator.of(context).pop(), // Closing the sheet.
-          child: BottemSheet(),
-        );
-      },
-    );
-                // showBottomSheet(
-                //     context: context,
-                //     builder: (context) => Container(
-                //           height: 250,
-                //           width: 30,
-                //           color: Colors.red,
-                //         ));
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    // <-- SEE HERE
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(30),
+                    ),
+                  ),
+                  builder: (_) {
+                    return GestureDetector(
+                      onTap: () => Navigator.of(context).pop(), // Closing the sheet.
+                      child: BottemSheet(),
+                    );
+                  },
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 16),
@@ -73,7 +66,7 @@ class _StatisticsState extends State<Statistics> {
             ),
             Container(
               height: 136,
-              width: 390,
+              width: 370,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 image: const DecorationImage(

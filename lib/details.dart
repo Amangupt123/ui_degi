@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ui_degi/My%20Profile.dart';
 
 import 'ChangePassword.dart';
 import 'leaderboard.dart';
@@ -46,7 +47,7 @@ class _DetailsState extends State<Details> {
         ),
         actions: [
           InkWell(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Password())),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MyProfile())),
             child: Container(
               height: 19,
               width: 60,

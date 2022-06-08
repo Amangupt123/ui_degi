@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:ui_degi/details.dart';
 import 'package:ui_degi/leaderboard.dart';
 
 class Result extends StatefulWidget {
@@ -18,7 +19,7 @@ class _ResultState extends State<Result> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(backgroundColor: Colors.transparent, shadowColor: Colors.transparent, elevation: 0, actions: [
         InkWell(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Leaderboard())),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Details())),
           child: Container(
             child: Center(
               child: Container(

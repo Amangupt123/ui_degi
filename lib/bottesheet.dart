@@ -7,110 +7,98 @@ class BottemSheet extends StatefulWidget {
   State<BottemSheet> createState() => _BottemSheetState();
 }
 
-class ListItem {
-  int value;
-  String name;
-  ListItem(this.value, this.name);
-}
-
 class _BottemSheetState extends State<BottemSheet> {
-  int _value = 1;
-  List<ListItem> _dropdownItems = [
-    ListItem(1, "First Value"),
-    ListItem(2, "Second Item"),
-    ListItem(3, "Third Item"),
-    ListItem(4, "Fourth Item")
-  ];
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked =
+        await showDatePicker(context: context, initialDate: selectedDate, firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() => selectedDate = picked);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<int> list_items = [1,2,3];
-    return Container(
+    return SizedBox(
       height: 425,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Container(
-              color: Color(0xffF4F8F8),
+              color: const Color(0xffF4F8F8),
               height: 50,
               child: Row(
-                children: const [
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children:  [
                   CircleAvatar(
                     radius: 23,
-                    backgroundImage: AssetImage(
-                      "assets/image/flow@3x.png",
-                    ),
+                    child: Image.asset("assets/image/Grou@3x.png",  fit: BoxFit.cover,),
                   ),
-                  Text("data"),
-                  Icon(
-                    Icons.cancel_outlined,
-                    size: 30,
-                    color: Color(
-                      0xff505050,
-                    ),
-                  ),
+                  Text("Filter"),
+                  Icon(Icons.cancel_outlined, size: 30, color: Color(0xff505050)),
                 ],
               )),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Text("In publishing and graphic design, Lorem "),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 5),
-            child: Text("ipsum is a placeholder text commonly"),
-          ),
-         Card(
-  elevation: 1,
-  margin: EdgeInsets.only(bottom: 3),
-  child: ListTile(
-    title: Text("Item Type"),
-    contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-    trailing: DropdownButtonHideUnderline(
-      child: DropdownButton(
-        isExpanded: false,
-        value: true,
-        items: itemTypeList.map((item) {
-          return new DropdownMenuItem(
-
-            child: Container(
-              width: 150,                    //expand here
-              child: new Text(
-                item['item_name'],
-                textAlign: TextAlign.end,
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+          const Padding(padding: EdgeInsets.only(left: 28), child: Text("In publishing and graphic design, Lorem ")),
+          const Padding(padding: EdgeInsets.only(left: 28, top: 5), child: Text("ipsum is a placeholder text commonly")),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              InkWell(
+                onTap: () => _selectDate(context),
+                child: Container(
+                  width: 155,
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          const Text("From Date", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Color(0xff727272))),
+                          const SizedBox(height: 10),
+                          Text("${selectedDate.toLocal()}".split(' ')[0]),
+                        ],
+                      ),
+                      const Icon(Icons.calendar_month),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            value: item['item_id'],
-          );
-        }).toList(),
-        onChanged: (value) {
-          setState(() {
-            _value = value;
-          });
-        },
-        hint: Container(
-          width: 150,                      //and here
-          child: Text(
-            "Select Item Type",
-            style: TextStyle(color: Colors.grey),
-            textAlign: TextAlign.end,
+              InkWell(
+                onTap: () => _selectDate(context),
+                child: Container(
+                  width: 155,
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          const Text("To Date", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Color(0xff727272))),
+                          const SizedBox(height: 10),
+                          Text("${selectedDate.toLocal()}".split(' ')[0]),
+                        ],
+                      ),
+                      const Icon(Icons.calendar_month),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-        style:
-            TextStyle(color: Colors.black, decorationColor: Colors.red),
-      ),
-    ),
-  ),
-),
         ],
       ),
     );
-    // return Container(width: MediaQuery.of(context).size.width * 0.1,
-    //  height: MediaQuery.of(context).size.height * 0.5,
-    //  decoration: const BoxDecoration(
-    //                     borderRadius: BorderRadius.only(topLeft: Radius.circular(70), topRight: Radius.circular(70)),
-    //                     ));
   }
 }
