@@ -12,6 +12,16 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context, initialDate: selectedDate, firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() => selectedDate = picked);
+    }
+  }
+
   var textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -60,326 +70,352 @@ class _EditProfileState extends State<EditProfile> {
             color: Color(0xff4DE19E).withOpacity(0.2),
             child: const Text(
                 "     The user details should match the bank and \n aadhar details card submitted. In case any discrepancy is observed payouts are liable to be suspended / cancelled. The phone number cannot be changed more than once in 3 months.")),
-                SizedBox(height: MediaQuery.of(context).size.height*0.01),
-        Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Stack(
-            alignment: Alignment.topRight,
-            clipBehavior: Clip.none,
-            children: [
-              Positioned(bottom: 20, right: -30, child: CircleAvatar()),
-              CircleAvatar(
-                radius: 73,
-                backgroundColor: Colors.orange,
-                child: Center(
+        SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.bottomRight,
+          children: [
+            CircleAvatar(
+              radius: 73,
+              backgroundColor: Colors.orange,
+              child: Center(
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 69,
                   child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 69,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: Image.asset(
-                        'assets/image/profile 1@3x.png',
-                        fit: BoxFit.contain,
-                      ).image,
-                      radius: 64,
-                    ),
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: Image.asset(
+                      'assets/image/profile 1@3x.png',
+                      fit: BoxFit.contain,
+                    ).image,
+                    radius: 64,
                   ),
                 ),
               ),
-            ],
-          ),
-        ]),
+            ),
+            const Positioned(bottom: 10, child: CircleAvatar()),
+          ],
+        ),
         Expanded(
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Enter Name'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter your Enter Name',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Email'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Email',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('DOB'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'DOB',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Pin code'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Pin code',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Area'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Area',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('City'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'City',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('State'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'State',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Country'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Country',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('State'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'State',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.094,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('State'),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'State',
-                            hintStyle: const TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(
-          height: MediaQuery.of(context).size.height * 0.04,
-        ),
-        GestureDetector(
-          onTap: (() => Navigator.push(context, MaterialPageRoute(builder: (context) => Home2()))),
-          child: Stack(
-            alignment: Alignment.topRight,
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                width: MediaQuery.of(context).size.width * 0.95,
-                decoration: BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                    child: Text(
-                  'Save',
-                  style: TextStyle(color: Color(0xffFFFFFF), fontWeight: FontWeight.w700, fontSize: 21),
-                )),
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
-              Positioned(
-                  top: 9,
-                  right: 10,
-                  child: SvgPicture.asset(
-                    'assets/image/arrowlast 4.svg',
-                    // scale: 2.7,
-                  ))
-            ],
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Enter Name'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Enter your Enter Name',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Email'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                  border: Border.all(color: const Color(0xffDDDDDD)),
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('DOB'),
+                    TextFormField(
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: selectedDate.toString(),
+                        hintStyle: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
+                        suffix: InkWell(
+                          onTap: () => _selectDate(context),
+                          child: const SizedBox(child: Icon(Icons.calendar_month)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Pin code'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Pin code',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Area'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Area',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('City'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'City',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('State'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'State',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Country'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Country',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('State'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'State',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.094,
+                width: MediaQuery.of(context).size.width * 0.95,
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                decoration: BoxDecoration(
+                    border: Border.all(color: const Color(0xffDDDDDD)),
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('State'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'State',
+                          hintStyle: const TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.04,
+              ),
+              GestureDetector(
+                onTap: (() => Navigator.push(context, MaterialPageRoute(builder: (context) => Home2()))),
+                child: Stack(
+                  alignment: Alignment.topRight,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      width: MediaQuery.of(context).size.width * 0.95,
+                      decoration:
+                          BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
+                      child: const Center(
+                          child: Text(
+                        'Save',
+                        style: TextStyle(color: Color(0xffFFFFFF), fontWeight: FontWeight.w700, fontSize: 21),
+                      )),
+                    ),
+                    Positioned(
+                        top: 9,
+                        right: 10,
+                        child: SvgPicture.asset(
+                          'assets/image/arrowlast 4.svg',
+                          // scale: 2.7,
+                        ))
+                  ],
+                ),
+              ),
+            ]),
           ),
         ),
-              ]
-            ),
-          ),
-        ),
-        
-      ]
-      ),
+      ]),
     );
   }
 }

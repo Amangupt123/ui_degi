@@ -5,21 +5,21 @@ import 'package:ui_degi/Statistics.dart';
 
 import 'details.dart';
 
-class Password extends StatefulWidget {
-  Password({Key? key}) : super(key: key);
+class PasswordScreen extends StatefulWidget {
+  PasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<Password> createState() => _PasswordState();
+  State<PasswordScreen> createState() => _PasswordScreenState();
 }
 
-class _PasswordState extends State<Password> {
+class _PasswordScreenState extends State<PasswordScreen> {
   @override
   bool isObscure = false;
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Change Password",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
@@ -37,11 +37,11 @@ class _PasswordState extends State<Password> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: InkWell( onTap: (() => Navigator.push(context, MaterialPageRoute(builder: (context) => Statistics()))),
+            child: InkWell(
+                onTap: (() => Navigator.push(context, MaterialPageRoute(builder: (context) => Statistics()))),
                 child: SvgPicture.asset(
-              "assets/image/information@2x.svg",
-              
-            )),
+                  "assets/image/information@2x.svg",
+                )),
           )
         ],
         elevation: 0,
@@ -96,10 +96,13 @@ class _PasswordState extends State<Password> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.094,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      padding:
-                          EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          top: MediaQuery.of(context).size.height * 0.01),
                       decoration: BoxDecoration(
-                          border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
+                          border: Border.all(color: const Color(0xffDDDDDD)),
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -140,10 +143,13 @@ class _PasswordState extends State<Password> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.094,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      padding:
-                          EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          top: MediaQuery.of(context).size.height * 0.01),
                       decoration: BoxDecoration(
-                          border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
+                          border: Border.all(color: const Color(0xffDDDDDD)),
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -187,10 +193,13 @@ class _PasswordState extends State<Password> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.094,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      padding:
-                          EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          top: MediaQuery.of(context).size.height * 0.01),
                       decoration: BoxDecoration(
-                          border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
+                          border: Border.all(color: const Color(0xffDDDDDD)),
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -229,7 +238,8 @@ class _PasswordState extends State<Password> {
                       Container(
                         height: MediaQuery.of(context).size.height * 0.07,
                         width: MediaQuery.of(context).size.width * 0.95,
-                        decoration: BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
+                        decoration:
+                            BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
                         child: const Center(
                             child: Text(
                           'Save',
