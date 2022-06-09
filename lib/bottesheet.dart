@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+
 
 class BottemSheet extends StatefulWidget {
   BottemSheet({Key? key}) : super(key: key);
@@ -17,6 +20,15 @@ class _BottemSheetState extends State<BottemSheet> {
       setState(() => selectedDate = picked);
     }
   }
+  //List<String> _locations = ['A', 'B', 'C', 'D']; // Option 2
+ // String _dropDownValue="s";
+final List<String> items = [
+  'Item1',
+  'Item2',
+  'Item3',
+  'Item4',
+];
+String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +42,17 @@ class _BottemSheetState extends State<BottemSheet> {
               color: const Color(0xffF4F8F8),
               height: 50,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:  [
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [SizedBox(width: MediaQuery.of(context).size.width * 0.1),
                   CircleAvatar(
-                    radius: 23,
-                    child: Image.asset("assets/image/Grou@3x.png",  fit: BoxFit.cover,),
-                  ),
-                  Text("Filter"),
+                      radius: 20,
+                      child: SvgPicture.asset(
+                        "assets/image/kippp@3x.svg",
+                      )),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                  Text("Filter", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Color(0xff000000))),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.5),
                   Icon(Icons.cancel_outlined, size: 30, color: Color(0xff505050)),
                 ],
               )),
@@ -97,6 +113,49 @@ class _BottemSheetState extends State<BottemSheet> {
               ),
             ],
           ),
+           SizedBox(height: MediaQuery.of(context).size.height  * 0.02),
+             //child: DropdownButtonHideUnderline(
+       Padding(
+         padding: const EdgeInsets.only(left:9 ),
+         child: DropdownButton2(  buttonDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.grey
+                //color: Colors.black26,
+              )),
+           hint: Text(
+             'Select Item',
+             style: TextStyle(
+               fontSize: 14,
+               color: Theme
+                       .of(context)
+                       .hintColor,
+             ),
+           ),
+           items: items
+                   .map((item) =>
+                   DropdownMenuItem<String>(
+                     value: item,
+                     child: Text(
+                       item,
+                       style: const TextStyle(
+                         fontSize: 14,
+                       ),
+                     ),
+                   ))
+                   .toList(),
+           value: selectedValue,
+           onChanged: (value) {
+             setState(() {
+               selectedValue = value as String;
+             });
+           },
+           
+           buttonHeight: MediaQuery.of(context).size.height*0.1,
+           buttonWidth: MediaQuery.of(context).size.width*0.95,
+           itemHeight: 40,
+         ),
+       ),
+    
         ],
       ),
     );

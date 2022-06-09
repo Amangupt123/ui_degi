@@ -78,15 +78,21 @@ class _StatisticsState extends State<Statistics> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Padding(padding: EdgeInsets.only(left: 200)),
-                  Text(
-                    "Total Played Quiz",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Color(0xffFFFFFF)),
+                 
+                  Padding(
+                    padding: EdgeInsets.only(left: 30)
+,                    child: Text(
+                      "Total Played Quiz",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Color(0xffFFFFFF)),
+                    ),
                   ),
                   SizedBox(height: 10),
-                  Text(
-                    "30",
-                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400, color: Color(0xffFFFFFF)),
+                  Padding(
+                    padding: EdgeInsets.only(left: 60),
+                    child: Text(
+                      "30",
+                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400, color: Color(0xffFFFFFF)),
+                    ),
                   )
                 ],
               ),
@@ -108,14 +114,22 @@ class _StatisticsState extends State<Statistics> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.92,
                   height: MediaQuery.of(context).size.height * 0.3,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(topRight: Radius.circular(9), bottomRight: Radius.circular(9)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(9), bottomRight: Radius.circular(9)),
                     color: Colors.white,
+                     boxShadow: [
+            BoxShadow(
+                // color: Colors.black,
+                blurRadius: 2.0,
+                spreadRadius: 0.0,
+                offset: Offset(0.1, 0.1), // shadow direction: bottom right
+            )
+        ],
                     // border: Border.all(color: Colors.white),
                   ),
                   child: Column(
                     children: [
-                      Padding(
+                      const Padding(
                           padding: EdgeInsets.only(
                         top: 18,
                       )),
@@ -123,9 +137,12 @@ class _StatisticsState extends State<Statistics> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [
-                          Text(
-                            "Master Minds",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000)),
+                          Padding(
+                            padding: EdgeInsets.only(right: 75),
+                            child: Text(
+                              "Master Minds",
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000)),
+                            ),
                           ),
                           Text(
                             "Date:17 Apr 2022",
@@ -153,11 +170,11 @@ class _StatisticsState extends State<Statistics> {
                                     SizedBox(
                                       height: MediaQuery.of(context).size.height * 0.09,
                                     ),
-                                    Text(
+                                    const Text(
                                       "Your Score is ",
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000)),
                                     ),
-                                    Text(
+                                    const Text(
                                       "70",
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000)),
                                     )
@@ -257,14 +274,22 @@ class _StatisticsState extends State<Statistics> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.92,
                   height: MediaQuery.of(context).size.height * 0.3,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(topRight: Radius.circular(9), bottomRight: Radius.circular(9)),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(9), bottomRight: Radius.circular(9)),
                     color: Colors.white,
+                      boxShadow: [
+            BoxShadow(
+                // color: Colors.black,
+                blurRadius: 2.0,
+                spreadRadius: 0.0,
+                offset: Offset(0.1, 0.1), // shadow direction: bottom right
+            )
+        ],
                     // border: Border.all(color: Colors.white),
                   ),
                   child: Column(
                     children: [
-                      Padding(
+                      const Padding(
                           padding: EdgeInsets.only(
                         top: 18,
                       )),
@@ -272,9 +297,12 @@ class _StatisticsState extends State<Statistics> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [
-                          Text(
-                            "Let’s Get Quizzica",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000)),
+                          Padding(
+                            padding: EdgeInsets.only(right: 55),
+                            child: Text(
+                              "Let's Get Quizzica",
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Color(0xff000000)),
+                            ),
                           ),
                           Text(
                             "Date:16 Apr 2022",
@@ -302,11 +330,11 @@ class _StatisticsState extends State<Statistics> {
                                     SizedBox(
                                       height: MediaQuery.of(context).size.height * 0.09,
                                     ),
-                                    Text(
+                                    const Text(
                                       "Your Score is ",
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000)),
                                     ),
-                                    Text(
+                                    const Text(
                                       "60",
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Color(0xff000000)),
                                     )

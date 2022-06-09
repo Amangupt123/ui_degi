@@ -15,8 +15,8 @@ class _EditProfileState extends State<EditProfile> {
   DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context, initialDate: selectedDate, firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
+    final DateTime? picked =
+        await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
     if (picked != null && picked != selectedDate) {
       setState(() => selectedDate = picked);
     }
@@ -66,10 +66,16 @@ class _EditProfileState extends State<EditProfile> {
             ),
           ),
         ),
-        Container(
+        Container(width:MediaQuery.of(context).size.width,
+            height: 110,
             color: Color(0xff4DE19E).withOpacity(0.2),
-            child: const Text(
-                "     The user details should match the bank and \n aadhar details card submitted. In case any discrepancy is observed payouts are liable to be suspended / cancelled. The phone number cannot be changed more than once in 3 months.")),
+            child: Column(
+              children: [
+                Text("The user details should match the bank and aadhar"),
+                Text("details card submitted. In case any discrepancy is"),
+                Text(" observed payouts are liable to be suspended / cancelled."),Text("The phone number cannot be changed more than once in 3"),Text("months.")
+              ],
+            )),
         SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         Stack(
           clipBehavior: Clip.none,
@@ -93,7 +99,14 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            const Positioned(bottom: 10, child: CircleAvatar()),
+            Positioned(
+                bottom: 10,
+                child: CircleAvatar(
+                  backgroundImage: Image.asset(
+                    "assets/image/Edit @3x.png",
+                    fit: BoxFit.contain,
+                  ).image,
+                )),
           ],
         ),
         Expanded(
@@ -105,12 +118,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -133,12 +143,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -160,8 +167,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xffDDDDDD)),
                   borderRadius: BorderRadius.circular(12),
@@ -192,12 +198,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -220,12 +223,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -248,12 +248,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -276,12 +273,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -304,12 +298,9 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -332,20 +323,17 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('State'),
+                    const Text('Phone no'),
                     TextFormField(
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'State',
+                          hintText: 'Phone no',
                           hintStyle: const TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
@@ -360,20 +348,17 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.094,
                 width: MediaQuery.of(context).size.width * 0.95,
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, top: MediaQuery.of(context).size.height * 0.01),
                 decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xffDDDDDD)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.white),
+                    border: Border.all(color: const Color(0xffDDDDDD)), borderRadius: BorderRadius.circular(12), color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('State'),
+                    const Text('User name'),
                     TextFormField(
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'State',
+                          hintText: 'User name',
                           hintStyle: const TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
@@ -394,8 +379,7 @@ class _EditProfileState extends State<EditProfile> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.07,
                       width: MediaQuery.of(context).size.width * 0.95,
-                      decoration:
-                          BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
+                      decoration: BoxDecoration(color: const Color(0xffFD9A3A), borderRadius: BorderRadius.circular(10)),
                       child: const Center(
                           child: Text(
                         'Save',

@@ -36,71 +36,73 @@ class _MyProfileState extends State<MyProfile> {
               image: DecorationImage(image: AssetImage("assets/image/top_header@3x.png"), fit: BoxFit.fitWidth),
             ),
           ),
-          const Padding(padding: EdgeInsets.only(bottom: 1, top: 1)),
-          ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            //reverse: true,
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  index == 0
-                      ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()))
-                      : Navigator.of(context).push(MaterialPageRoute(builder: (context) => PasswordScreen()));
-                },
-                child: Container(
-                  margin: const EdgeInsets.only(bottom: 10),
-                  child: Card(
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Colors.grey, width: .5),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: IntrinsicHeight(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          Container(
-                            child: index == 0
-                                ? Image.asset("assets/image/Group 33627@3x.png", scale: 2.8)
-                                : Image.asset("assets/image/Group 33627@3x.png", scale: 2.8),
-                            height: 70,
-                            width: 65,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                bottomLeft: Radius.circular(8),
-                              ),
-                              color: Colors.orangeAccent,
-                            ),
-                          ),
-                          Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Text(
-                                    index == 0 ? "Edit Profile" : "Change Password",
-                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                                  ),
+         // const Padding(padding: EdgeInsets.only(bottom: 1, top: 1)),
+          Container(height:MediaQuery.of(context).size.height*0.27,width:MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+            reverse: true,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    index == 1
+                        ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()))
+                        : Navigator.of(context).push(MaterialPageRoute(builder: (context) => PasswordScreen()));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: Card(
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(color: Colors.grey, width: .5),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: IntrinsicHeight(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            Container(
+                              child: index == 0
+                                  ? Image.asset("assets/image/Group 33627@3x.png", scale: 2.8)
+                                  : Image.asset("assets/image/Group 33627@3x.png", scale: 2.8),
+                              height: 70,
+                              width: 65,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  bottomLeft: Radius.circular(8),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Image.asset("assets/image/expendedarrow@3x.png", scale: 2.5),
-                                )
-                              ],
+                                color: Colors.orangeAccent,
+                              ),
                             ),
-                          ),
-                        ],
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      index == 1 ? "Edit Profile" : "Change Password",
+                                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Image.asset("assets/image/expendedarrow@3x.png", scale: 2.5),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           )
         ],
       ),
