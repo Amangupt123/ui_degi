@@ -79,10 +79,10 @@ class _EditProfileState extends State<EditProfile> {
             color: Color(0xff4DE19E).withOpacity(0.2),
             child: Column(
               children: const [
-                Text("The user details should match the bank and aadhar"),
-                Text("details card submitted. In case any discrepancy is"),
-                Text(" observed payouts are liable to be suspended / cancelled."),
-                Text("The phone number cannot be changed more than once in 3"),
+                Text("The user details should match the bank and aadhar"  ,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff505050)),),
+                Text("details card submitted. In case any discrepancy is" ,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                Text(" observed payouts are liable to be suspended / cancelled." ,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff505050))),
+                Text("The phone number cannot be changed more than once in 3" ,style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Color(0xff505050))),
                 Text("months.")
               ],
             )),
@@ -134,7 +134,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Enter Name'),
+                    const Text('Enter Name' ,style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -159,7 +159,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Email'),
+                    const Text('Email',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -186,7 +186,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('DOB'),
+                    const Text('DOB',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     Stack(children: [
                       TextFormField(
                         readOnly: true,
@@ -223,7 +223,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Pin code'),
+                    const Text('Pin code',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -248,7 +248,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Area'),
+                    const Text('Area',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -273,7 +273,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('City'),
+                    const Text('City',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -298,7 +298,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('State'),
+                    const Text('State',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -323,7 +323,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Country'),
+                    const Text('Country',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -348,7 +348,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Phone no'),
+                    const Text('Phone no',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -373,7 +373,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('User name'),
+                    const Text('User name',style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff727272))),
                     TextFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -411,7 +411,8 @@ class _EditProfileState extends State<EditProfile> {
                         child: SvgPicture.asset(
                           'assets/image/arrowlast 4.svg',
                           // scale: 2.7,
-                        u)
+                    )
+                    )
                   ],
                 ),
               ),
