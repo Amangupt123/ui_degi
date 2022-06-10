@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ui_degi/My%20Profile.dart';
-
+import 'package:intl/intl.dart';
 import 'Home2.dart';
 
 class EditProfile extends StatefulWidget {
@@ -13,12 +13,19 @@ class EditProfile extends StatefulWidget {
 
 class _EditProfileState extends State<EditProfile> {
   DateTime selectedDate = DateTime.now();
+  String formattedDate = "";
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked =
         await showDatePicker(context: context, initialDate: DateTime.now(), firstDate: DateTime(2015, 8), lastDate: DateTime(2101));
     if (picked != null && picked != selectedDate) {
-      setState(() => selectedDate = picked);
+      print(picked); //pickedDate output format => 2021-03-10 00:00:00.000
+      formattedDate = DateFormat('yyyy-MM-dd').format(picked);
+      print(formattedDate); //formatted date output using intl package =>  2021-03-16
+      setState(() {});
+    } else {
+      print("Date is not selected");
+      //setState(() => selectedDate = picked ?? "");
     }
   }
 
@@ -28,7 +35,7 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Edit Profile",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
         ),
@@ -66,14 +73,17 @@ class _EditProfileState extends State<EditProfile> {
             ),
           ),
         ),
-        Container(width:MediaQuery.of(context).size.width,
+        Container(
+            width: MediaQuery.of(context).size.width,
             height: 110,
             color: Color(0xff4DE19E).withOpacity(0.2),
             child: Column(
-              children: [
+              children: const [
                 Text("The user details should match the bank and aadhar"),
                 Text("details card submitted. In case any discrepancy is"),
-                Text(" observed payouts are liable to be suspended / cancelled."),Text("The phone number cannot be changed more than once in 3"),Text("months.")
+                Text(" observed payouts are liable to be suspended / cancelled."),
+                Text("The phone number cannot be changed more than once in 3"),
+                Text("months.")
               ],
             )),
         SizedBox(height: MediaQuery.of(context).size.height * 0.01),
@@ -126,10 +136,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Enter Name'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Enter your Enter Name',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -151,10 +161,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Email'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Email',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -177,18 +187,27 @@ class _EditProfileState extends State<EditProfile> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text('DOB'),
-                    TextFormField(
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: selectedDate.toString(),
-                        hintStyle: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
-                        suffix: InkWell(
-                          onTap: () => _selectDate(context),
-                          child: const SizedBox(child: Icon(Icons.calendar_month)),
+                    Stack(children: [
+                      TextFormField(
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: formattedDate,
+                          hintStyle: const TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
                         ),
                       ),
-                    ),
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {
+                              _selectDate(context);
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.calendar_month),
+                            ),
+                          )),
+                    ]),
                   ],
                 ),
               ),
@@ -206,10 +225,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Pin code'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Pin code',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -231,10 +250,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Area'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Area',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -256,10 +275,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('City'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'City',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -281,10 +300,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('State'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'State',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -306,10 +325,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Country'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Country',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -331,10 +350,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('Phone no'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Phone no',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -356,10 +375,10 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     const Text('User name'),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'User name',
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                           )),
@@ -392,7 +411,7 @@ class _EditProfileState extends State<EditProfile> {
                         child: SvgPicture.asset(
                           'assets/image/arrowlast 4.svg',
                           // scale: 2.7,
-                        ))
+                        u)
                   ],
                 ),
               ),
