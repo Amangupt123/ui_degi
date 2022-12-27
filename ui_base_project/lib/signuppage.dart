@@ -5,9 +5,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:ui_base_project/alltextfield/textfield.dart';
 import 'package:ui_base_project/controller/logincontroller.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -17,6 +19,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  List<String>? items = ['Male', 'Female', 'Other'];
   final AuthController login = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -25,10 +28,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Textinput(
+            const Textinput(
               textname: "Join Us",
               fontWeight: FontWeight.w600,
               fontsize: 26,
@@ -47,23 +50,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Textinput(
+            const SizedBox(height: 20),
+            const Textinput(
               textname: "Email",
               fontWeight: FontWeight.w600,
             ),
             textfield(hintText: "Enter Your Email", controller: login.emailController),
-            Textinput(
+            const Textinput(
               textname: "Name",
               fontWeight: FontWeight.w600,
             ),
             textfield(hintText: "Enter Your Name", controller: login.nameController),
-            Textinput(
+            const Textinput(
               textname: "Date of Birth",
               fontWeight: FontWeight.w600,
             ),
             textfield(
-              hintText: "Enter Your Name",
+              hintText: "Enter Your DOB",
               controller: login.dobController,
               image: InkWell(
                 child: SvgPicture.asset(
@@ -74,6 +77,64 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   selectDate(context);
                 }),
               ),
+            ),
+            const Textinput(
+              textname: "Password",
+              fontWeight: FontWeight.w600,
+            ),
+            Obx(
+              () => textfield(
+                hintText: "Enter Your Password",
+                controller: login.passwordController,
+                image: GestureDetector(
+                  child: Icon(
+                    login.isObscure.value ? Icons.visibility_off : Icons.visibility,
+                    color: !login.isObscure.value ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () {
+                    login.isObscure.value = !login.isObscure.value;
+                  },
+                ),
+              ),
+            ),
+            const Textinput(
+              textname: "Confirm Password",
+              fontWeight: FontWeight.w600,
+            ),
+            Obx(
+              () => textfield(
+                hintText: "Enter Your Password",
+                controller: login.passwordController,
+                image: GestureDetector(
+                  child: Icon(
+                    login.isObscure.value ? Icons.visibility_off : Icons.visibility,
+                    color: !login.isObscure.value ? Colors.orange : Colors.grey,
+                  ),
+                  onTap: () {
+                    login.isObscure.value = !login.isObscure.value;
+                  },
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Textinput(
+                  textname: "Don’t have an account?",
+                  fontsize: 16,
+                ),
+                InkWell(
+                  onTap: (() {
+                    Get.back();
+                  }),
+                  child: const Textinput(
+                    textname: "Sign Up",
+                    fontsize: 16,
+                    color: Colors.green,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             )
           ],
         ),

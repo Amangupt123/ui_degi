@@ -7,7 +7,15 @@ import 'package:intl/intl.dart';
 import 'package:ui_base_project/controller/logincontroller.dart';
 
 class textfield extends StatelessWidget {
-  textfield({super.key, required this.hintText, required this.controller, this.keyboardType, this.validator, this.image, this.isObscure = false});
+  textfield({
+    super.key,
+    required this.hintText,
+    required this.controller,
+    this.keyboardType,
+    this.validator,
+    this.image,
+    this.isObscure = false,
+  });
   final String hintText;
   final TextEditingController controller;
   final TextInputType? keyboardType;
