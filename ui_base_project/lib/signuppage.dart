@@ -116,26 +116,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Textinput(
-                  textname: "Don’t have an account?",
-                  fontsize: 16,
-                ),
-                InkWell(
-                  onTap: (() {
-                    Get.back();
-                  }),
-                  child: const Textinput(
-                    textname: "Sign Up",
-                    fontsize: 16,
-                    color: Colors.green,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            )
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     const Textinput(
+            //       textname: "Don’t have an account?",
+            //       fontsize: 16,
+            //     ),
+            //     InkWell(
+            //       onTap: (() {
+            //         Get.back();
+            //       }),
+            //       child: const Textinput(
+            //         textname: "Sign Up",
+            //         fontsize: 16,
+            //         color: Colors.green,
+            //         fontWeight: FontWeight.w600,
+            //       ),
+            //     ),
+            //   ],
+            // )
           ],
         ),
       ),
